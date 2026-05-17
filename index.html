@@ -17,7 +17,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230B2A4A'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='18'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#002855;
@@ -29,14 +29,15 @@
     --line:#E4E6E0;
     --bg:#FAFAF7;
     --card:#FFFFFF;
-    --green:#0F7F41;
-    --green-bright:#2FA15C;
+    --green:#78BE21;
+    --green-bright:#78BE21;
     --accent:#002855;
     --accent-soft:#EAF3EC;
     --grey-block:#D9DEE6;
     --grey-block-2:#CBD2DD;
     --maxw:1180px;
     --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    --display:'Montserrat','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
     --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -198,15 +199,29 @@
   .imgph.bg{position:absolute;inset:0;border-radius:0;border:0;margin:0;aspect-ratio:auto}
 
   /* ---------- Cover / closing ---------- */
-  .cover{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
-  .cover .ovl{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,40,85,.62),rgba(0,40,85,.92))}
+  .cover{position:relative;height:100%;color:#fff;overflow:hidden}
+  .cover .ovl{
+    position:absolute;inset:0;background-color:rgba(0,40,85,.75);
+    background-image:linear-gradient(to top right,rgba(0,40,85,1) 0%,rgba(0,40,85,.4) 100%);
+  }
   .cover .ph-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.25);padding:8px 14px;border-radius:8px}
-  .cover .inner{position:relative;padding:0 12px 18px;max-width:var(--maxw);margin:0 auto;width:100%}
-  .cover .mark{position:absolute;top:34px;left:60px;font-weight:800;letter-spacing:.02em;font-size:20px;color:#fff;z-index:2}
-  .cover .eyebrow{color:var(--green-bright)}
-  .cover h1{color:#fff;font-size:64px;line-height:1.05}
-  .cover .sub{color:#D6E2F0;font-size:20px}
-  .cover .url{position:absolute;bottom:18px;right:60px;font-size:13px;color:#BFD2E8;font-family:var(--mono)}
+  .cover .inner{position:absolute;left:128px;right:128px;top:60%;text-align:left}
+  .cover .eyebrow{
+    display:block;color:var(--green);font-family:var(--display);font-weight:700;
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  .cover h1{
+    color:#fff;font-family:var(--display);font-weight:800;font-size:80px;
+    line-height:.95;letter-spacing:-.03em;max-width:1100px;margin:24px 0 0;
+  }
+  .cover .sub{
+    color:rgba(255,255,255,.8);font-family:var(--display);font-weight:500;
+    font-size:22px;line-height:1.4;max-width:800px;margin:32px 0 0;
+  }
+  .cover .url{
+    position:absolute;right:128px;bottom:86px;font-family:var(--mono);font-weight:500;
+    font-size:13px;color:rgba(255,255,255,.7);
+  }
   .closing{align-items:center;justify-content:center;text-align:center;height:100%;display:flex;flex-direction:column}
   .closing h1{font-size:54px;max-width:900px}
   .closing .meta{margin-top:26px;font-family:var(--mono);font-size:14px;color:var(--muted);line-height:2}
@@ -278,7 +293,7 @@
 
   /* ---------- Bookend accent bar (Cover / Closing) ---------- */
   .accent-bar{
-    position:absolute;top:9px;left:0;right:0;height:6px;
+    position:absolute;bottom:0;left:0;right:0;height:6px;
     background:var(--green);z-index:29;display:none;
   }
   .deck.bookend .accent-bar{display:block}
@@ -334,11 +349,13 @@
     .slide{padding:84px 20px 30px}
     .brandmark{top:50px;left:20px;font-size:17px}
     h1.title{font-size:32px}h1.title.xl{font-size:38px}
-    .cover h1{font-size:38px}.closing h1{font-size:34px}
+    .cover h1{font-size:40px}.closing h1{font-size:34px}
+    .cover .inner{left:20px;right:20px;top:auto;bottom:90px}
+    .cover .sub{font-size:17px}
+    .cover .url{right:20px;bottom:70px}
     .stat-grid,.grid.c4,.actions{grid-template-columns:repeat(2,1fr)}
     .grid.c2,.grid.c3,.grid.c6,.facts,.chips,.seq{grid-template-columns:1fr;display:grid}
     .seq{flex-direction:column}
-    .cover .mark{left:20px}.cover .url{right:20px}
     .twocol{columns:1}
     .drawer{max-height:90vh}
   }
@@ -353,11 +370,11 @@
     <div class="subbar"><div class="fill" id="subFill"></div></div>
   </div>
 
-  <div class="accent-bar"></div>
   <div class="brandmark">envision</div>
 
   <!-- ===== STAGE ===== -->
   <div class="stage">
+    <div class="accent-bar"></div>
     <div class="slides" id="slides">
 
       <!-- 01 Cover -->
