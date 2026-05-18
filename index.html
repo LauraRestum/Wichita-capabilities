@@ -304,6 +304,89 @@
   .tl-item{font-size:13px;line-height:1.5;color:var(--text-mid);max-width:30ch}
   .tl-item b{color:var(--navy);font-weight:800;margin-right:7px}
 
+  /* ---------- Mission pillars slide ---------- */
+  .mission-slide{padding:0;overflow:hidden;display:flex}
+  .mission-slide .mw{
+    max-width:1400px;margin:0 auto;width:100%;height:100%;
+    display:flex;flex-direction:column;
+    padding:clamp(14px,2.6vh,30px) clamp(20px,4vw,64px);
+    gap:clamp(10px,1.8vh,20px);
+  }
+  .ms-eyebrow{
+    flex:none;text-align:center;
+    font-size:11px;font-weight:700;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--green);
+  }
+  .ms-stats{
+    flex:none;display:grid;grid-template-columns:repeat(4,1fr);
+    background:var(--bg-tint);border:1px solid var(--rule-light);border-radius:6px;
+    padding:clamp(12px,1.9vh,22px) clamp(12px,1.4vw,22px);
+  }
+  .ms-stat{text-align:center;padding:0 clamp(6px,1vw,18px)}
+  .ms-stat + .ms-stat{border-left:1px solid var(--rule-light)}
+  .ms-stat .n{
+    font-weight:800;font-size:clamp(1.45rem,2.5vw,2.3rem);
+    color:var(--navy);line-height:1;letter-spacing:-0.02em;
+  }
+  .ms-stat .l{
+    font-size:clamp(10px,0.82vw,12.5px);line-height:1.45;
+    color:var(--text-soft);font-weight:500;margin-top:9px;
+  }
+  .ms-pillars{
+    flex:1;min-height:0;display:grid;grid-template-columns:repeat(5,1fr);
+    gap:clamp(10px,1.5vw,24px);
+  }
+  .ms-col{display:flex;flex-direction:column;min-height:0}
+  .ms-head{
+    flex:none;background:var(--navy);border-radius:6px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:clamp(7px,1.1vh,13px);
+    padding:clamp(13px,2.1vh,24px) 10px;
+  }
+  .ms-head svg{
+    width:clamp(22px,2vw,32px);height:clamp(22px,2vw,32px);
+    stroke:#fff;fill:none;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+  .ms-head .nm{
+    color:#fff;font-weight:700;text-align:center;
+    font-size:clamp(11px,0.95vw,14px);letter-spacing:.1em;text-transform:uppercase;
+  }
+  .ms-desc{
+    margin-top:clamp(10px,1.6vh,16px);
+    min-height:clamp(92px,13.5vh,156px);
+    font-size:clamp(10.5px,0.83vw,12.5px);line-height:1.55;color:var(--text-mid);
+  }
+  .ms-bullets{
+    list-style:none;display:flex;flex-direction:column;
+    gap:clamp(4px,0.75vh,8px);
+  }
+  .ms-bullets li{
+    position:relative;padding-left:14px;
+    font-size:clamp(10px,0.78vw,12px);line-height:1.4;color:var(--text-mid);
+  }
+  .ms-bullets li::before{
+    content:'';position:absolute;left:0;top:0.52em;
+    width:5px;height:5px;border-radius:50%;background:var(--green);
+  }
+  .ms-band{
+    flex:none;background:var(--navy);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    padding:clamp(16px,2.8vh,32px) clamp(24px,5vw,72px);
+  }
+  .ms-band p{
+    color:#fff;font-style:italic;font-weight:300;text-align:center;
+    font-size:clamp(0.95rem,1.5vw,1.32rem);line-height:1.5;max-width:62ch;
+  }
+  @media (max-width:1024px){
+    .mission-slide{overflow-y:auto}
+    .mission-slide .mw{height:auto;min-height:100%}
+    .ms-stats{grid-template-columns:repeat(2,1fr)}
+    .ms-stat:nth-child(3){border-left:0}
+    .ms-pillars{grid-template-columns:1fr;gap:16px}
+    .ms-desc{min-height:0}
+  }
+
   /* ---------- CTA ---------- */
   .cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;align-items:center}
   .btn-primary{
@@ -675,7 +758,104 @@
         </div>
       </section>
 
-      <!-- SLIDE 10: MISSION CLOSE -->
+      <!-- SLIDE 10: MISSION PILLARS -->
+      <section class="slide mission-slide" data-name="Mission">
+        <div class="mw">
+          <div class="ms-eyebrow">Our Mission</div>
+
+          <div class="ms-stats">
+            <div class="ms-stat">
+              <div class="n">662,000</div>
+              <div class="l">School-aged children in America are living with vision loss</div>
+            </div>
+            <div class="ms-stat">
+              <div class="n">86%</div>
+              <div class="l">Of high school graduates with vision loss do not enroll in a four-year college</div>
+            </div>
+            <div class="ms-stat">
+              <div class="n">7 in 10</div>
+              <div class="l">Americans with vision loss are unemployed</div>
+            </div>
+            <div class="ms-stat">
+              <div class="n">1 in 3</div>
+              <div class="l">Americans by age 65 will be living with an eye disease that threatens their vision</div>
+            </div>
+          </div>
+
+          <div class="ms-pillars">
+            <div class="ms-col">
+              <div class="ms-head">
+                <svg viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <div class="nm">Employment</div>
+              </div>
+              <p class="ms-desc">Envision is one of the nation's largest employers of people who are blind or have low vision, with career pathways across manufacturing, services, and professional roles. Workforce programs prepare individuals for the job market through assistive technology training, career readiness, and direct placement support.</p>
+              <ul class="ms-bullets">
+                <li>Adult assistive technology and career readiness training</li>
+                <li>Post-secondary education and employment preparedness programs</li>
+                <li>Job placement and employer partnerships</li>
+              </ul>
+            </div>
+
+            <div class="ms-col">
+              <div class="ms-head">
+                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="nm">Outreach</div>
+              </div>
+              <p class="ms-desc">Envision builds community, connection, and creative space for people who are blind or have low vision across every stage of life. Programs strengthen independence, reduce isolation, and create gathering places for the community.</p>
+              <ul class="ms-bullets">
+                <li>Adult day support programs</li>
+                <li>Youth specialized summer camps</li>
+                <li>Creative arts gallery and studio space</li>
+              </ul>
+            </div>
+
+            <div class="ms-col">
+              <div class="ms-head">
+                <svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+                <div class="nm">Rehabilitation</div>
+              </div>
+              <p class="ms-desc">The Vision Rehabilitation Center provides clinical low vision evaluations, assistive technology training, and independent living skills programs. Services support people through every stage of vision loss, from newly diagnosed to progressively losing sight.</p>
+              <ul class="ms-bullets">
+                <li>Clinical low vision evaluations</li>
+                <li>Assistive technology training</li>
+                <li>Independent living skills programs</li>
+              </ul>
+            </div>
+
+            <div class="ms-col">
+              <div class="ms-head">
+                <svg viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+                <div class="nm">Education</div>
+              </div>
+              <p class="ms-desc">Envision delivers education for people who are blind or have low vision from early childhood through professional development. Programs include integrated early childhood classrooms and continuing education for clinicians, educators, and professionals in the field.</p>
+              <ul class="ms-bullets">
+                <li>Integrated early childhood education</li>
+                <li>Annual professional conference</li>
+                <li>Continuing education for vision health professionals</li>
+              </ul>
+            </div>
+
+            <div class="ms-col">
+              <div class="ms-head">
+                <svg viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></svg>
+                <div class="nm">Research</div>
+              </div>
+              <p class="ms-desc">The Envision Research Institute conducts vision science research and partners with universities, healthcare systems, and industry to advance treatment, technology, and quality of life for people who are blind or have low vision. Fellowship programs train the next generation of vision researchers.</p>
+              <ul class="ms-bullets">
+                <li>Vision science research</li>
+                <li>Post-doctoral fellowship programs</li>
+                <li>University and industry research partnerships</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ms-band">
+            <p>&ldquo;To improve the quality of life and provide inspiration for the blind or visually impaired through employment, outreach, rehabilitation, education and research.&rdquo;</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 11: MISSION CLOSE -->
       <section class="slide" data-name="Mission">
         <div class="wrap">
           <div class="eyebrow">What This Campus Stands For</div>
@@ -694,7 +874,7 @@
         </div>
       </section>
 
-      <!-- SLIDE 11: CTA -->
+      <!-- SLIDE 12: CTA -->
       <section class="slide" data-name="Contact">
         <div class="wrap center">
           <div class="eyebrow">Envision · Wichita Campus</div>
@@ -747,7 +927,7 @@
 (function(){
   "use strict";
 
-  /* One nav section per surface slide (11 total) */
+  /* One nav section per surface slide; Mission spans 2 (12 slides, 11 sections) */
   var SECTIONS = [
     {name:"Hero",        count:1},
     {name:"About",       count:1},
@@ -758,7 +938,7 @@
     {name:"Proof",       count:1},
     {name:"Federal",     count:1},
     {name:"Compliance",  count:1},
-    {name:"Mission",     count:1},
+    {name:"Mission",     count:2},
     {name:"Contact",     count:1}
   ];
 
