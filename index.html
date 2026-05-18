@@ -245,7 +245,6 @@
     position:absolute;inset:0;background-color:rgba(0,40,85,.75);
     background-image:linear-gradient(to top right,rgba(0,40,85,1) 0%,rgba(0,40,85,.4) 100%);
   }
-  .cover .ph-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.25);padding:8px 14px;border-radius:8px}
   .cover .inner{position:absolute;left:128px;right:128px;top:60%;text-align:left}
   .cover .eyebrow{
     display:block;color:var(--green);font-family:var(--sans);font-weight:700;
@@ -353,7 +352,7 @@
 
   /* ---------- Brand logo (per design system) ---------- */
   .brandmark{
-    position:absolute;top:var(--gut-y);left:var(--gut-x);z-index:25;
+    position:absolute;top:max(var(--gut-y),36px);left:var(--gut-x);z-index:25;
     font-family:var(--sans);font-weight:800;font-size:20px;letter-spacing:.01em;
     color:var(--navy);pointer-events:none;line-height:1;
   }
@@ -464,7 +463,7 @@
   /* ---------- Mobile (below 768px): single column ---------- */
   @media (max-width:767px){
     .slide{padding:84px 18px 24px}
-    .brandmark{top:24px;left:18px;font-size:17px}
+    .brandmark{top:36px;left:18px;font-size:17px}
     h1.title{font-size:32px}.closing-title{font-size:34px}
     .cover h1{font-size:40px}
     .cover .inner{left:20px;right:20px;top:auto;bottom:90px}
@@ -488,9 +487,57 @@
     .center-meta .divider,.center-meta .sec{display:none}
     .iconbtn .tip{display:none}
   }
+
+  /* ---------- Reduced motion ---------- */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+      animation-duration:.01ms !important;animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;scroll-behavior:auto !important;
+    }
+  }
+
+  /* ---------- Print / Save as PDF ---------- */
+  @media print{
+    body{overflow:visible;background:#fff}
+    .topbar,.botbar,.scrim,.drawer{display:none !important}
+    .deck,.stage,.slides{position:static !important}
+    .slide{
+      position:static !important;opacity:1 !important;pointer-events:auto !important;
+      height:auto;min-height:auto;overflow:visible;
+      padding:48px var(--gut-x);page-break-after:always;
+    }
+    .slide:first-child,.slide:last-child{padding:48px var(--gut-x)}
+    .cover{height:auto;min-height:60vh}
+    .cover .inner{position:static;margin-top:40px}
+    .cover .url{position:static;margin-top:24px}
+    .brandmark{position:static;margin-bottom:24px}
+    .accent-bar{display:none !important}
+    .l1-body{max-height:none !important;opacity:1 !important;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+    .imgph.bg{display:none}
+  }
 </style>
 </head>
 <body>
+<noscript>
+  <style>
+    body{overflow:auto}
+    .deck,.stage,.slides{position:static !important}
+    .topbar,.botbar,.scrim,.drawer{display:none !important}
+    .slide{
+      position:static !important;opacity:1 !important;pointer-events:auto !important;
+      height:auto;min-height:100vh;overflow:visible;padding:80px var(--gut-x) 64px;
+    }
+    .slide:first-child,.slide:last-child{padding:80px var(--gut-x) 64px}
+    .cover{height:auto;min-height:100vh}
+    .cover .inner{position:static;margin-top:40px}
+    .cover .url{position:static;margin-top:24px}
+    .accent-bar{display:none !important}
+    .l1-body{max-height:none !important;opacity:1 !important;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  </style>
+  <div style="position:fixed;top:0;left:0;right:0;z-index:100;background:#002855;color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;text-align:center;padding:10px 16px">
+    Interactive navigation needs JavaScript. All slides are shown below.
+  </div>
+</noscript>
 <div class="deck" id="deck">
 
   <!-- ===== TOP CHROME ===== -->
@@ -514,7 +561,6 @@
         <div class="cover">
           <div class="imgph bg"></div>
           <div class="ovl"></div>
-          <div class="ph-label">[IMG-01 · Wichita campus exterior / production hero · 16:9 full-bleed]</div>
           <div class="inner">
             <div class="eyebrow">Wichita Campus · Capabilities</div>
             <h1>Manufacturing in the U.S. since 1933.</h1>
@@ -608,16 +654,16 @@
           </p>
           <div class="grid c4">
             <div class="card l1"><h3>Max-Performance<span class="chev">+</span></h3><p class="one">The flagship line.</p>
-              <div class="l1-body"><p>LLDPE Flat Pack with a minimum 10% post-consumer recycled content. The line that supplies the greatest share of BVI direct labor hours.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">LLDPE · 10% PCR min</span><br><button class="drawerbtn" data-drawer="maxperf">See SKU table ↑</button></div>
+              <div class="l1-body"><p>LLDPE Flat Pack with a minimum 10% post-consumer recycled content. The line that supplies the greatest share of BVI direct labor hours.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">LLDPE · 10% PCR min</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="maxperf">See SKU table ↑</button></div>
             </div>
             <div class="card l1"><h3>Pro-Performance LLDPE<span class="chev">+</span></h3><p class="one">Stretch and load strength.</p>
-              <div class="l1-body"><p>LLDPE construction tuned for puncture resistance and stretch under load across federal sizes.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">LLDPE</span><br><button class="drawerbtn" data-drawer="prolldpe">See SKU table ↑</button></div>
+              <div class="l1-body"><p>LLDPE construction tuned for puncture resistance and stretch under load across federal sizes.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">LLDPE</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="prolldpe">See SKU table ↑</button></div>
             </div>
             <div class="card l1"><h3>Pro-Performance HDPE<span class="chev">+</span></h3><p class="one">High tensile, economical.</p>
-              <div class="l1-body"><p>HDPE construction for high tensile strength at lower gauge. Cost-efficient for high-throughput waste streams.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">HDPE</span><br><button class="drawerbtn" data-drawer="prohdpe">See SKU table ↑</button></div>
+              <div class="l1-body"><p>HDPE construction for high tensile strength at lower gauge. Cost-efficient for high-throughput waste streams.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">HDPE</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="prohdpe">See SKU table ↑</button></div>
             </div>
             <div class="card l1"><h3>Specialty<span class="chev">+</span></h3><p class="one">Insect repellent, shredder, recycled, compostable, controlled life-cycle.</p>
-              <div class="l1-body"><p>Purpose-built liners: insect repellent, shredder, recycled-content, compostable, and controlled life-cycle constructions.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">Recycled / compostable</span><br><button class="drawerbtn" data-drawer="specialty">See SKU table ↑</button></div>
+              <div class="l1-body"><p>Purpose-built liners: insect repellent, shredder, recycled-content, compostable, and controlled life-cycle constructions.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">Recycled / compostable</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="specialty">See SKU table ↑</button></div>
             </div>
           </div>
             </div>
@@ -643,7 +689,7 @@
               <div class="l1-body"><p>Mission follows credibility. This product line is one of the strongest examples of how Envision combines commercial performance with social impact. Buyers choose Max-Performance because it performs. The 91% BVI Direct Labor concentration at Wichita explains why our quality stays consistent. Manufacturing workforce retention runs significantly above industry averages.</p></div>
             </div>
           </div>
-          <button class="drawerbtn" data-drawer="maxperf">See full Max-Performance SKU table ↑</button>
+          <button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="maxperf">See full Max-Performance SKU table ↑</button>
             </div>
             <div class="split-media">
               <div class="imgph r43"><span class="tag">[IMG-06 · Max-Performance product or production line · 4:3]</span></div>
@@ -662,19 +708,19 @@
           <p class="anchor">LLDPE. Tear and puncture resistant. Federal-grade compliance.</p>
           <div class="grid c3">
             <div class="card l1"><h3>Medical isolation<span class="chev">+</span></h3><p class="one">Red, yellow, blue color system.</p>
-              <div class="l1-body"><p>Color-coded isolation bags (red / yellow / blue) for regulated medical waste segregation in clinical settings.</p><span class="pill">OSHA bloodborne</span><br><button class="drawerbtn" data-drawer="isolation">See SKU table ↑</button></div>
+              <div class="l1-body"><p>Color-coded isolation bags (red / yellow / blue) for regulated medical waste segregation in clinical settings.</p><span class="pill">OSHA bloodborne</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="isolation">See SKU table ↑</button></div>
             </div>
             <div class="card l1"><h3>Body Fluid Clean Up Kit<span class="chev">+</span></h3><p class="one">8-piece OSHA bloodborne kit.</p>
-              <div class="l1-body"><p>Self-contained spill response kit assembled to the OSHA bloodborne pathogens standard. Eight-piece configuration.</p><span class="pill">OSHA · DOT 49 CFR</span><br><button class="drawerbtn" data-drawer="bfcuk">See kit contents ↑</button></div>
+              <div class="l1-body"><p>Self-contained spill response kit assembled to the OSHA bloodborne pathogens standard. Eight-piece configuration.</p><span class="pill">OSHA · DOT 49 CFR</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="bfcuk">See kit contents ↑</button></div>
             </div>
             <div class="card l1"><h3>ZF Seal Closure Bags<span class="chev">+</span></h3><p class="one">Secure seal closure series.</p>
-              <div class="l1-body"><p>Seal-closure bag series for secure containment and transport. Multiple sizes across the ZF range.</p><span class="pill">LLDPE</span><br><button class="drawerbtn" data-drawer="zf">See SKU table ↑</button></div>
+              <div class="l1-body"><p>Seal-closure bag series for secure containment and transport. Multiple sizes across the ZF range.</p><span class="pill">LLDPE</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="zf">See SKU table ↑</button></div>
             </div>
             <div class="card l1"><h3>VA Belongings Bags<span class="chev">+</span></h3><p class="one">Patient belongings, VA spec.</p>
-              <div class="l1-body"><p>Patient belongings bags built to VA specification for personal-effects handling.</p><span class="pill">VA spec</span><br><button class="drawerbtn" data-drawer="va">See SKU table ↑</button></div>
+              <div class="l1-body"><p>Patient belongings bags built to VA specification for personal-effects handling.</p><span class="pill">VA spec</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="va">See SKU table ↑</button></div>
             </div>
             <div class="card l1"><h3>TidyGirl feminine hygiene<span class="chev">+</span></h3><p class="one">Disposal system bags.</p>
-              <div class="l1-body"><p>Feminine hygiene disposal bags for facility restroom programs.</p><span class="pill">Facility</span><br><button class="drawerbtn" data-drawer="tidygirl">See SKU table ↑</button></div>
+              <div class="l1-body"><p>Feminine hygiene disposal bags for facility restroom programs.</p><span class="pill">Facility</span><br><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="tidygirl">See SKU table ↑</button></div>
             </div>
           </div>
             </div>
@@ -709,7 +755,7 @@
                 <div class="chip"><span class="sw" style="background:#C9252C"></span><span class="cn">Red<small>[Part # · NSN]</small></span></div>
                 <div class="chip"><span class="sw" style="background:#5BD94B"></span><span class="cn">Fluorescent Green<small>[Part # · NSN]</small></span></div>
               </div>
-              <button class="drawerbtn" data-drawer="visibelt">See full SKU table ↑</button>
+              <button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="visibelt">See full SKU table ↑</button>
             </div>
           </div>
           <div class="imgph land"><span class="tag">[IMG-08 · VISI-BELT worn in low-light setting · landscape action shot]</span></div>
@@ -724,10 +770,10 @@
           <p class="anchor">Water-resistant. Flood-control capable. Construction and agricultural grade.</p>
           <div class="grid c2">
             <div class="card l1"><h3>Meets ASTM-D4397-10<span class="chev">+</span></h3><p class="one">Polyethylene sheeting standard.</p>
-              <div class="l1-body"><p>ASTM-D4397-10 governs polyethylene sheeting for construction and agricultural use, covering thickness tolerance and physical properties. The qualifying SKUs are listed in the full sheeting table.</p><button class="drawerbtn" data-drawer="sheeting">See SKU table ↑</button></div>
+              <div class="l1-body"><p>ASTM-D4397-10 governs polyethylene sheeting for construction and agricultural use, covering thickness tolerance and physical properties. The qualifying SKUs are listed in the full sheeting table.</p><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="sheeting">See SKU table ↑</button></div>
             </div>
             <div class="card l1"><h3>Meets CID-A-A-3174 &amp; L-P-378<span class="chev">+</span></h3><p class="one">Federal sheeting specifications.</p>
-              <div class="l1-body"><p>CID-A-A-3174 and L-P-378 are the federal commercial-item and material specifications for plastic sheeting. Qualifying SKUs are flagged in the full sheeting table.</p><button class="drawerbtn" data-drawer="sheeting">See SKU table ↑</button></div>
+              <div class="l1-body"><p>CID-A-A-3174 and L-P-378 are the federal commercial-item and material specifications for plastic sheeting. Qualifying SKUs are flagged in the full sheeting table.</p><button class="drawerbtn" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false" data-drawer="sheeting">See SKU table ↑</button></div>
             </div>
           </div>
           <div class="imgph r43"><span class="tag">[IMG-09 · Plastic sheeting roll or installation · 4:3]</span></div>
@@ -1157,6 +1203,7 @@
   var drawerTitle = document.getElementById("drawerTitle");
   var drawerCloseBtn = document.getElementById("drawerClose");
   var drawerLastFocus = null;
+  var drawerTrigger = null;
 
   function getDrawerFocusable(){
     return Array.prototype.slice.call(
@@ -1164,13 +1211,15 @@
     ).filter(function(el){ return el.offsetParent !== null; });
   }
 
-  function openDrawer(key){
+  function openDrawer(key, trigger){
     var def = SKU_COLS[key];
     drawerTitle.textContent = def ? def.t : "SKU Table";
     drawerBody.innerHTML = buildTable(key);
     scrim.classList.add("show");
     drawer.classList.add("show");
     drawerLastFocus = document.activeElement;
+    drawerTrigger = trigger || null;
+    if (drawerTrigger) drawerTrigger.setAttribute("aria-expanded", "true");
     drawerCloseBtn.focus();
   }
   function closeDrawer(instant){
@@ -1185,6 +1234,10 @@
       void drawer.offsetWidth;
       drawer.classList.remove("no-anim");
       scrim.classList.remove("no-anim");
+    }
+    if (drawerTrigger){
+      drawerTrigger.setAttribute("aria-expanded", "false");
+      drawerTrigger = null;
     }
     if (wasOpen && drawerLastFocus && typeof drawerLastFocus.focus === "function"){
       drawerLastFocus.focus();
@@ -1275,7 +1328,7 @@
   // Delegated clicks: L1 cards, drawer buttons, internal goto links
   document.getElementById("slides").addEventListener("click", function(e){
     var dBtn = e.target.closest("[data-drawer]");
-    if (dBtn){ e.stopPropagation(); openDrawer(dBtn.getAttribute("data-drawer")); return; }
+    if (dBtn){ e.stopPropagation(); openDrawer(dBtn.getAttribute("data-drawer"), dBtn); return; }
     var gBtn = e.target.closest("[data-goto]");
     if (gBtn){ e.stopPropagation(); go(parseInt(gBtn.getAttribute("data-goto"), 10) - 1); return; }
     var card = e.target.closest(".card.l1");
