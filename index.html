@@ -136,6 +136,15 @@
     position:absolute;inset:0;z-index:0;
     background-image:url("images/Envision-wichita-highangle-buildingphoto.png");
     background-size:cover;background-position:center right;
+    transform:scale(1);transform-origin:center;
+    animation:heroZoom 28s ease-out forwards;
+  }
+  @keyframes heroZoom{
+    from{transform:scale(1)}
+    to{transform:scale(1.18)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero .image-bg{animation:none;transform:scale(1)}
   }
   .hero .overlay{
     position:absolute;inset:0;z-index:1;
