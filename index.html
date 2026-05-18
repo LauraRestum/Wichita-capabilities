@@ -65,7 +65,10 @@
   }
   .nav-brand{
     font-family:var(--sans);font-weight:800;font-size:19px;letter-spacing:-0.01em;
-    color:var(--navy);line-height:1;display:flex;align-items:baseline;gap:9px;flex:none;
+    color:var(--navy);line-height:1;display:flex;align-items:center;gap:11px;flex:none;
+  }
+  .nav-brand .brand-logo{
+    height:32px;width:auto;display:block;
   }
   .nav-brand .brand-section{
     font-weight:600;font-size:12px;color:var(--text-soft);letter-spacing:.02em;
@@ -467,7 +470,7 @@
 
   <!-- ===================== TOP NAV ===================== -->
   <nav class="topnav">
-    <div class="nav-brand">Envision<span class="brand-section">Wichita Campus</span></div>
+    <div class="nav-brand"><img class="brand-logo" src="images/Envision_PrimaryFullColor_RBG.png" alt="Envision"><span class="brand-section">Wichita Campus</span></div>
     <div class="nav-links" id="navLinks"></div>
     <div class="nav-tools">
       <button class="icbtn" id="prevBtn" type="button" aria-label="Previous slide">
