@@ -276,6 +276,33 @@
     position:absolute;right:128px;bottom:86px;font-family:var(--mono);font-weight:500;
     font-size:13px;color:rgba(255,255,255,.7);
   }
+  /* ---------- Slide 01 capabilities marquee ---------- */
+  .cover .marquee{
+    position:absolute;left:0;right:0;bottom:0;z-index:4;
+    background:#1B365D;border-top:1px solid #7CB342;
+    overflow:hidden;white-space:nowrap;
+  }
+  .cover .marquee-track{
+    display:flex;width:max-content;
+    animation:marquee-scroll 50s linear infinite;
+  }
+  .cover .marquee-group{
+    display:flex;align-items:center;list-style:none;margin:0;padding:0;flex:none;
+  }
+  .cover .marquee-group li{
+    color:#fff;font-family:var(--sans);font-weight:600;text-transform:uppercase;
+    letter-spacing:.1em;font-size:14px;line-height:1;padding:14px 0;
+  }
+  .cover .marquee-group li.sep{color:#7CB342;padding-left:24px;padding-right:24px}
+  .cover .marquee:hover .marquee-track{animation-play-state:paused}
+  @keyframes marquee-scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .cover .marquee-track{animation:none}
+  }
+
   .closing{align-items:center;justify-content:center;text-align:center;height:100%;display:flex;flex-direction:column}
   .closing h1{max-width:900px}
   .closing .meta{margin-top:26px;font-family:var(--mono);font-size:14px;color:var(--muted);line-height:2}
@@ -469,6 +496,7 @@
     .cover .inner{left:20px;right:20px;top:auto;bottom:90px}
     .cover .sub{font-size:17px}
     .cover .url{right:20px;bottom:70px}
+    .cover .marquee-group li{font-size:12px;padding-top:12px;padding-bottom:12px}
     /* Single column everything; stat panels stack vertically */
     .stat-grid,.grid.c2,.grid.c3,.grid.c4,.grid.c6,.actions,.facts,.chips,.seq{grid-template-columns:1fr;display:grid}
     .seq{flex-direction:column}
@@ -516,9 +544,43 @@
           <div class="inner">
             <div class="eyebrow">Wichita Campus · Capabilities</div>
             <h1>Manufacturing in the U.S. since 1933.</h1>
-            <p class="sub">Plastic. Paper. Reflective. Print. Built for federal scale.</p>
+            <p class="sub">American manufacturing. Built to scale. Engineered to perform.</p>
           </div>
           <div class="url">envisionus.com</div>
+          <div class="marquee" role="marquee" aria-label="Wichita capabilities">
+            <div class="marquee-track">
+              <ul class="marquee-group">
+                <li>Manufacturing</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Kitting</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Assembly</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Print Production</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Packaging</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Fulfillment</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Reflective Products</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Plastic Products</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Paper Products</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Accessibility Services</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Quality Assurance</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Domestic Sourcing</li><li class="sep" aria-hidden="true">&bull;</li>
+                <li>Federal Contract Support</li><li class="sep" aria-hidden="true">&bull;</li>
+              </ul>
+              <ul class="marquee-group" aria-hidden="true">
+                <li>Manufacturing</li><li class="sep">&bull;</li>
+                <li>Kitting</li><li class="sep">&bull;</li>
+                <li>Assembly</li><li class="sep">&bull;</li>
+                <li>Print Production</li><li class="sep">&bull;</li>
+                <li>Packaging</li><li class="sep">&bull;</li>
+                <li>Fulfillment</li><li class="sep">&bull;</li>
+                <li>Reflective Products</li><li class="sep">&bull;</li>
+                <li>Plastic Products</li><li class="sep">&bull;</li>
+                <li>Paper Products</li><li class="sep">&bull;</li>
+                <li>Accessibility Services</li><li class="sep">&bull;</li>
+                <li>Quality Assurance</li><li class="sep">&bull;</li>
+                <li>Domestic Sourcing</li><li class="sep">&bull;</li>
+                <li>Federal Contract Support</li><li class="sep">&bull;</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
