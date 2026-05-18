@@ -190,6 +190,12 @@
     color:var(--text-soft);
   }
   .img-placeholder .ph-note{font-size:13px;color:var(--text-mid);max-width:48ch}
+  .img-placeholder.hero-banner{
+    margin:0 0 28px;aspect-ratio:auto;height:120px;min-height:120px;
+    flex-direction:row;gap:14px;padding:0 24px;
+  }
+  .img-placeholder.hero-banner svg{width:30px;height:30px}
+  .img-placeholder.hero-banner .ph-note{max-width:none}
 
   /* ---------- 3,000-foot view ---------- */
   .zone{margin-top:30px}
@@ -850,6 +856,17 @@
       <!-- SLIDE 5: CAPABILITIES HUB -->
       <section class="slide" data-name="Capabilities">
         <div class="wrap">
+          <!-- IMAGE SLOT: Skinny hero banner, full-width, ~120px tall -->
+          <figure class="img-placeholder hero-banner" role="img" aria-label="Image placeholder: skinny hero banner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+            <div class="ph-title">Hero Banner</div>
+            <div class="ph-note">Skinny full-width banner image.</div>
+          </figure>
+          <!-- END IMAGE SLOT -->
           <div class="eyebrow">Capabilities</div>
           <h2 class="sec-h">Everything Wichita <span class="accent">makes.</span></h2>
           <p class="subhead">Five manufacturing capabilities operated from a single Kansas campus. Each one shipped under contract today.</p>
@@ -861,6 +878,17 @@
       <!-- SLIDE 6: SERVICES HUB -->
       <section class="slide" data-name="Services">
         <div class="wrap">
+          <!-- IMAGE SLOT: Skinny hero banner, full-width, ~120px tall -->
+          <figure class="img-placeholder hero-banner" role="img" aria-label="Image placeholder: skinny hero banner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+            <div class="ph-title">Hero Banner</div>
+            <div class="ph-note">Skinny full-width banner image.</div>
+          </figure>
+          <!-- END IMAGE SLOT -->
           <div class="eyebrow">Services</div>
           <h2 class="sec-h">Everything Wichita <span class="accent">delivers.</span></h2>
           <p class="subhead">Four services that extend our manufacturing capability. Available as packaged offerings alongside any production program.</p>
