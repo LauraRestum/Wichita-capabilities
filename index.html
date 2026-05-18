@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Envision · Wichita Campus Capabilities</title>
-<meta name="description" content="Envision's Wichita, Kansas campus — U.S. manufacturing since 1933. Can liners, medical & specialty bags, reflective safety systems, plastic sheeting, and federal-quality print. Built for federal scale.">
+<meta name="description" content="Envision's Wichita, Kansas campus. U.S. manufacturing since 1933. Can liners, medical & specialty bags, reflective safety systems, plastic sheeting, and federal-quality print. Built for federal scale.">
 <meta name="theme-color" content="#002855">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
@@ -62,29 +62,42 @@
   }
   .deck{position:fixed;inset:0;display:flex;flex-direction:column}
 
-  /* ---------- Top progress chrome (24px area) ---------- */
-  .topbar{position:relative;z-index:30;height:24px;flex:none;user-select:none;background:transparent}
-  .track{position:absolute;left:0;right:0;top:9px;height:4px;background:var(--sp-gray)}
-  .track-fill{height:100%;width:0;background:var(--sp-navy);transition:width .3s ease-out}
-  .tick{position:absolute;top:1px;height:20px;width:1px;background:var(--sp-charcoal);transform:translateX(-.5px);cursor:pointer}
-  .tick-hit{position:absolute;top:-4px;left:-6px;width:13px;height:28px}
-  .tick-tip{
-    position:absolute;left:50%;top:25px;transform:translateX(-50%) translateY(4px);
-    background:var(--sp-white);color:var(--sp-navy);font-family:var(--sans);font-weight:600;
-    font-size:10px;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;
-    padding:6px;border-radius:8px;box-shadow:var(--shadow-med);
-    opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;
+  /* ---------- Persistent top navigation (wayfinding) ---------- */
+  .topnav{
+    position:relative;z-index:30;flex:none;height:60px;
+    background:var(--sp-white);border-bottom:1px solid var(--sp-gray);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 var(--gut-x);user-select:none;
   }
-  .tick:hover .tick-tip{opacity:1;transform:translateX(-50%) translateY(0)}
-  .subbar{position:absolute;top:17px;height:2px;background:transparent}
-  .sub-fill{height:100%;width:0;background:var(--sp-green);transition:width .3s ease-out}
+  .nav-brand{
+    font-family:var(--sans);font-weight:800;font-size:20px;letter-spacing:.01em;
+    color:var(--navy);line-height:1;display:flex;align-items:baseline;gap:8px;flex:none;
+  }
+  .nav-brand .brand-section{
+    font-weight:500;font-size:13px;color:var(--muted);letter-spacing:.02em;
+  }
+  .nav-links{display:flex;align-items:center;gap:2px}
+  .navlink{
+    background:none;border:0;cursor:pointer;font-family:var(--sans);
+    font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);padding:8px 14px;border-radius:8px;
+    border-bottom:2px solid transparent;
+    transition:color .18s,border-color .18s;white-space:nowrap;
+  }
+  .navlink:hover{color:var(--navy)}
+  .navlink.active{color:var(--navy);border-bottom-color:var(--green)}
+  .navlink:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:6px}
+  .nav-progress{
+    position:absolute;left:0;bottom:-1px;height:2px;width:0;
+    background:var(--green);transition:width .3s ease-out;
+  }
 
   /* ---------- Stage (400ms cross-fade) ---------- */
   .stage{position:relative;flex:1;overflow:hidden;background:var(--bg)}
   .slides{position:absolute;inset:0}
   .slide{
     position:absolute;inset:0;overflow-y:auto;
-    padding:112px var(--gut-x) var(--gut-y);
+    padding:64px var(--gut-x) var(--gut-y);
     opacity:0;pointer-events:none;z-index:1;transition:opacity .2s ease;background:var(--bg);
   }
   .slide.current{opacity:1;pointer-events:auto;z-index:2;transition:opacity .3s ease .1s}
@@ -351,23 +364,6 @@
     text-transform:uppercase;letter-spacing:.14em;
   }
 
-  /* ---------- Brand logo (per design system) ---------- */
-  .brandmark{
-    position:absolute;top:var(--gut-y);left:var(--gut-x);z-index:25;
-    font-family:var(--sans);font-weight:800;font-size:20px;letter-spacing:.01em;
-    color:var(--navy);pointer-events:none;line-height:1;
-  }
-  .deck.dark-surface .brandmark{color:#fff}
-  .brand-section{
-    font-family:var(--sans);
-    font-weight:500;
-    font-size:13px;
-    color:var(--muted);
-    margin-left:8px;
-    letter-spacing:0.02em;
-  }
-  .deck.dark-surface .brand-section{color:rgba(255,255,255,0.7)}
-
   /* ---------- Focus styles (keyboard accessibility) ---------- */
   .card.link:focus-visible,
   .card.l1:focus-visible,
@@ -445,11 +441,11 @@
   .slide.dark .dcma{color:rgba(255,255,255,.6);border-top-color:rgba(255,255,255,.16)}
   .slide.dark .closing .meta{color:rgba(255,255,255,.6)}
 
-  /* ---------- Tablet (768px–1279px) ---------- */
+  /* ---------- Tablet (768px to 1279px) ---------- */
   @media (max-width:1279px) and (min-width:768px){
     /* Gutters reduce: 128px desktop max -> 64px */
     :root{--gut-x:clamp(20px,5vw,64px)}
-    .slide{padding:96px var(--gut-x) var(--gut-y)}
+    .slide{padding:56px var(--gut-x) var(--gut-y)}
     /* Type scale reduces: H1 -> 44px, Display -> 64px */
     h1.title{font-size:40px}.closing-title{font-size:48px}
     .cover h1{font-size:64px}
@@ -463,8 +459,11 @@
 
   /* ---------- Mobile (below 768px): single column ---------- */
   @media (max-width:767px){
-    .slide{padding:84px 18px 24px}
-    .brandmark{top:24px;left:18px;font-size:17px}
+    .slide{padding:28px 18px 24px}
+    .topnav{height:52px;padding:0 14px}
+    .nav-brand{font-size:16px}
+    .nav-brand .brand-section{display:none}
+    .navlink{font-size:10px;padding:6px 8px;letter-spacing:.06em}
     h1.title{font-size:32px}.closing-title{font-size:34px}
     .cover h1{font-size:40px}
     .cover .inner{left:20px;right:20px;top:auto;bottom:90px}
@@ -493,16 +492,15 @@
 <body>
 <div class="deck" id="deck">
 
-  <!-- ===== TOP CHROME ===== -->
-  <div class="topbar">
-    <div class="track" id="track"><div class="track-fill" id="trackFill"></div></div>
-    <div class="subbar" id="subBar"><div class="sub-fill" id="subFill"></div></div>
-  </div>
-
-  <div class="brandmark">
-    envision
-    <span class="brand-section" id="brandSection">· Capabilities</span>
-  </div>
+  <!-- ===== PERSISTENT TOP NAVIGATION ===== -->
+  <nav class="topnav" aria-label="Section navigation">
+    <div class="nav-brand">
+      envision
+      <span class="brand-section" id="brandSection">· Capabilities</span>
+    </div>
+    <div class="nav-links" id="navLinks"></div>
+    <div class="nav-progress" id="navProgress"></div>
+  </nav>
 
   <!-- ===== STAGE ===== -->
   <div class="stage">
@@ -524,41 +522,30 @@
         </div>
       </section>
 
-      <!-- 02 The Anchor -->
-      <section class="slide dark" data-sec="0">
-        <div class="wrap">
-          <div class="eyebrow">Why this campus matters</div>
-          <div class="stat-grid">
-            <div class="stat"><div class="num">175,000</div><div class="lab">sq ft facility</div></div>
-            <div class="stat has-reveal" tabindex="0">
-              <div class="num">91%</div>
-              <div class="lab"><span class="reveal">BVI Direct Labor concentration
-                <span class="rv">BVI = blind or visually impaired. Direct Labor = the workforce that physically makes our products. Wichita's 91% is the highest in the organization and substantially exceeds the AbilityOne 75% threshold.</span>
-              </span></div>
-            </div>
-            <div class="stat"><div class="num">1933</div><div class="lab">Founded</div></div>
-            <div class="stat"><div class="num">5+1</div><div class="lab">Production lines plus Envision Print</div></div>
-          </div>
-          <p class="anchor">Wichita is our original campus. It's where can liner manufacturing, specialty bags, reflective safety equipment, plastic sheeting, and federal-quality print live. The strongest BVI Direct Labor concentration in our organization.</p>
-        </div>
-      </section>
-
-      <!-- 03 Campus at a Glance -->
-      <section class="slide" data-sec="1">
+      <!-- 02 Wichita at a Glance (OPEN · merges old Anchor + Campus) -->
+      <section class="slide" data-sec="0">
         <div class="wrap">
           <div class="split">
             <div class="split-content">
-              <div class="eyebrow">Campus</div>
-              <h1 class="title">Wichita, Kansas</h1>
+              <div class="eyebrow">Wichita Campus</div>
+              <h1 class="title">Wichita, Kansas at a glance</h1>
+              <div class="stat-grid">
+                <div class="stat"><div class="num">175K</div><div class="lab">sq ft facility</div></div>
+                <div class="stat has-reveal" tabindex="0">
+                  <div class="num">91%</div>
+                  <div class="lab"><span class="reveal">BVI Direct Labor concentration
+                    <span class="rv">BVI Direct Labor is the workforce of team members who are blind or have low vision who physically make our products. Wichita's 91% is the highest in the organization and substantially exceeds the AbilityOne 75% threshold.</span>
+                  </span></div>
+                </div>
+                <div class="stat"><div class="num">1933</div><div class="lab">Founded</div></div>
+                <div class="stat"><div class="num">315</div><div class="lab">Employees</div></div>
+              </div>
               <div class="facts">
                 <div class="cell"><div class="k">Address</div><div class="v">2301 S. Water Street, Wichita, KS 67213</div></div>
                 <div class="cell"><div class="k">Phone</div><div class="v mono">(316) 522-3232</div></div>
-                <div class="cell"><div class="k">Facility</div><div class="v mono">175,000 sq ft</div></div>
-                <div class="cell"><div class="k">Founded</div><div class="v mono">1933</div></div>
-                <div class="cell"><div class="k">Employees</div><div class="v mono">315</div></div>
-                <div class="cell"><div class="k">BVI DL concentration</div><div class="v mono">91%</div></div>
+                <div class="cell"><div class="k">Production lines</div><div class="v mono">5 plus Envision Print</div></div>
               </div>
-              <p class="anchor">The original Envision campus. Continuously manufacturing since 1933.</p>
+              <p class="anchor">The original Envision campus, continuously manufacturing since 1933. Where can liner manufacturing, specialty bags, reflective safety equipment, plastic sheeting, and federal-quality print live. The strongest BVI Direct Labor concentration in our organization.</p>
             </div>
             <div class="split-media">
               <div class="imgph r43"><span class="tag">[IMG-03 · Wichita campus exterior · 4:3]</span></div>
@@ -567,128 +554,107 @@
         </div>
       </section>
 
-      <!-- 04 What We Manufacture -->
-      <section class="slide" data-sec="2">
+      <!-- 03 Capabilities & Services Overview (CAPABILITIES · home base, all tiles jump) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
-          <div class="eyebrow">What we make</div>
-          <h1 class="title">Five production lines. Plus Envision Print.</h1>
-          <div class="grid c6">
-            <div class="card l1"><div class="idx">01</div><h3>Can liner manufacturing<span class="chev">+</span></h3><p class="one">HDPE &amp; LLDPE, every density. Flat pack and coreless roll.</p>
-              <div class="l1-body"><dl class="kv"><dt>Materials</dt><dd>HDPE / LLDPE</dd><dt>Federal NSN</dt><dd>Yes</dd><dt>QA</dt><dd>Lab tensile / run</dd></dl><button class="linkbtn" data-goto="5">See full detail →</button></div>
+          <div class="eyebrow">Capabilities &amp; Services</div>
+          <h1 class="title">Everything Wichita makes and supports.</h1>
+          <div class="grid c4">
+            <div class="card link" data-goto="4" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · Plastic &amp; Film]</span></div>
+              <h3>Plastic &amp; Film Manufacturing<span class="chev">→</span></h3><p class="one">Can liners, medical and specialty bags, and plastic sheeting in HDPE and LLDPE.</p>
             </div>
-            <div class="card l1"><div class="idx">02</div><h3>Medical &amp; specialty bags<span class="chev">+</span></h3><p class="one">LLDPE. Tear and puncture resistant. Federal-grade compliance.</p>
-              <div class="l1-body"><dl class="kv"><dt>Material</dt><dd>LLDPE</dd><dt>Federal NSN</dt><dd>Yes</dd><dt>Compliance</dt><dd>DOT / OSHA</dd></dl><button class="linkbtn" data-goto="7">See full detail →</button></div>
+            <div class="card link" data-goto="5" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · VISI-BELT]</span></div>
+              <h3>VISI-BELT Reflective System<span class="chev">→</span></h3><p class="one">Reflective vinyl safety belts visible from 446 feet.</p>
             </div>
-            <div class="card l1"><div class="idx">03</div><h3>VISI-BELT reflective system<span class="chev">+</span></h3><p class="one">Reflective vinyl, reinforced webbing. Adjustable 31"–55".</p>
-              <div class="l1-body"><dl class="kv"><dt>Visibility</dt><dd>446 ft</dd><dt>Federal NSN</dt><dd>Yes</dd><dt>Colors</dt><dd>7</dd></dl><button class="linkbtn" data-goto="8">See full detail →</button></div>
+            <div class="card link" data-goto="6" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · Hand Trucks]</span></div>
+              <h3>Hand Trucks<span class="chev">→</span></h3><p class="one">Heavy-duty steel frame trucks, 300 to 700 lb capacity.</p>
             </div>
-            <div class="card l1"><div class="idx">04</div><h3>Plastic sheeting<span class="chev">+</span></h3><p class="one">Water-resistant. Flood-control capable. Construction grade.</p>
-              <div class="l1-body"><dl class="kv"><dt>Standards</dt><dd>ASTM-D4397-10</dd><dt>Federal NSN</dt><dd>Yes</dd><dt>Grade</dt><dd>Construction / ag</dd></dl><button class="linkbtn" data-goto="9">See full detail →</button></div>
+            <div class="card link" data-goto="7" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · Envision Print]</span></div>
+              <h3>Envision Print<span class="chev">→</span></h3><p class="one">Federal-quality print with Braille embossing and quick turnaround.</p>
             </div>
-            <div class="card l1"><div class="idx">05</div><h3>Hand trucks<span class="chev">+</span></h3><p class="one">Heavy-duty steel frame. Solid rubber tires.</p>
-              <div class="l1-body"><dl class="kv"><dt>Capacity</dt><dd>300–700 lbs</dd><dt>Federal NSN</dt><dd>Yes</dd><dt>Configs</dt><dd>5</dd></dl><button class="linkbtn" data-goto="10">See full detail →</button></div>
+            <div class="card link" data-goto="8" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · Quality]</span></div>
+              <h3>Quality &amp; Compliance<span class="chev">→</span></h3><p class="one">ISO 9001:2015, Berry, TAA, and Buy American credentials.</p>
             </div>
-            <div class="card l1"><div class="idx">06</div><h3>Envision Print<span class="chev">+</span></h3><p class="one">Federal-quality print. Braille embossing. Quick turnaround.</p>
-              <div class="l1-body"><dl class="kv"><dt>Output</dt><dd>Cards / forms / folders</dd><dt>Federal NSN</dt><dd>Yes</dd><dt>Braille</dt><dd>Grade 2 / Computer</dd></dl><button class="linkbtn" data-goto="11">See full detail →</button></div>
+            <div class="card link" data-goto="9" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · Contact Center]</span></div>
+              <h3>Envision Contact Center <span class="badge-org">ORG-WIDE</span><span class="chev">→</span></h3><p class="one">Multi-channel customer service for federal and enterprise scale.</p>
+            </div>
+            <div class="card link" data-goto="10" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · Accessibility]</span></div>
+              <h3>Envision Accessibility Services <span class="badge-org">ORG-WIDE</span><span class="chev">→</span></h3><p class="one">ADA Title II consulting, WCAG audits, and training.</p>
+            </div>
+            <div class="card link" data-goto="11" tabindex="0" role="link">
+              <div class="imgph" style="margin-top:0;aspect-ratio:16/9;min-height:0;padding:10px"><span class="tag">[ICON · Fulfillment]</span></div>
+              <h3>Fulfillment &amp; Assembly <span class="badge-org">ORG-WIDE</span><span class="chev">→</span></h3><p class="one">Kitting, pick and pack, distribution, and value-add assembly.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 05 Can Liner Portfolio -->
-      <section class="slide" data-sec="2">
+      <!-- 04 Plastic & Film Manufacturing (CAPABILITIES · absorbs can liner, bags, sheeting) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
-          <div class="split">
-            <div class="split-content">
-          <div class="eyebrow">Production line 01</div>
-          <h1 class="title">Can liner manufacturing</h1>
-          <p class="anchor">HDPE and LLDPE in every density. Flat pack and coreless roll.
+          <div class="eyebrow">Capabilities</div>
+          <h1 class="title">Plastic &amp; Film Manufacturing</h1>
+          <p class="anchor">Domestic polyethylene film manufacturing across three product families: can liners, medical and specialty bags, and plastic sheeting. HDPE and LLDPE in every density.
             <span class="reveal">QA Lab tensile testing on every production run.
               <span class="rv">Every production run is validated against gauge, strength, and material specs in our on-site quality lab.</span></span>
           </p>
-          <div class="grid c4">
-            <div class="card l1"><h3>Max-Performance<span class="chev">+</span></h3><p class="one">The flagship line.</p>
-              <div class="l1-body"><p>LLDPE Flat Pack with a minimum 10% post-consumer recycled content. The line that supplies the greatest share of BVI direct labor hours.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">LLDPE · 10% PCR min</span><br><button class="drawerbtn" data-drawer="maxperf">See SKU table ↑</button></div>
-            </div>
-            <div class="card l1"><h3>Pro-Performance LLDPE<span class="chev">+</span></h3><p class="one">Stretch and load strength.</p>
-              <div class="l1-body"><p>LLDPE construction tuned for puncture resistance and stretch under load across federal sizes.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">LLDPE</span><br><button class="drawerbtn" data-drawer="prolldpe">See SKU table ↑</button></div>
-            </div>
-            <div class="card l1"><h3>Pro-Performance HDPE<span class="chev">+</span></h3><p class="one">High tensile, economical.</p>
-              <div class="l1-body"><p>HDPE construction for high tensile strength at lower gauge. Cost-efficient for high-throughput waste streams.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">HDPE</span><br><button class="drawerbtn" data-drawer="prohdpe">See SKU table ↑</button></div>
-            </div>
-            <div class="card l1"><h3>Specialty<span class="chev">+</span></h3><p class="one">Insect repellent, shredder, recycled, compostable, controlled life-cycle.</p>
-              <div class="l1-body"><p>Purpose-built liners: insect repellent, shredder, recycled-content, compostable, and controlled life-cycle constructions.</p><span class="pill nsn">Federal NSN coverage</span><span class="pill">Recycled / compostable</span><br><button class="drawerbtn" data-drawer="specialty">See SKU table ↑</button></div>
-            </div>
+          <span class="pill nsn">Federal NSN coverage</span><span class="pill">Berry / TAA aligned</span><span class="pill">HDPE · LLDPE</span>
+          <div class="facts">
+            <div class="cell"><div class="k">Materials</div><div class="v mono">HDPE / LLDPE</div></div>
+            <div class="cell"><div class="k">Quality</div><div class="v mono">Lab tensile / run</div></div>
+            <div class="cell"><div class="k">Product families</div><div class="v mono">3</div></div>
           </div>
-            </div>
-            <div class="split-media">
-              <div class="imgph r43"><span class="tag">[IMG-05 · Can liner production line, roll output or flat pack · 4:3]</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 06 Max-Performance -->
-      <section class="slide" data-sec="2">
-        <div class="wrap">
-          <div class="split">
-            <div class="split-content">
-          <div class="eyebrow">Flagship product</div>
-          <h1 class="title">Max-Performance Can Liners</h1>
-          <p class="anchor">LLDPE Flat Pack. Minimum 10% post-consumer recycled content. The product line that supplies the greatest percentage of direct labor hours for employees who are blind or have low vision.</p>
           <div class="grid c3">
-            <div class="card"><h3>5 SKUs</h3><p class="one">Across federal sizes</p></div>
-            <div class="card"><h3>10% PCR</h3><p class="one">Post-consumer recycled, minimum</p></div>
-            <div class="card l1"><h3>Highest BVI labor<span class="chev">+</span></h3><p class="one">Greatest BVI direct-labor contribution of any line.</p>
-              <div class="l1-body"><p>Mission follows credibility. This product line is one of the strongest examples of how Envision combines commercial performance with social impact. Buyers choose Max-Performance because it performs. The 91% BVI Direct Labor concentration at Wichita explains why our quality stays consistent. Manufacturing workforce retention runs significantly above industry averages.</p></div>
+            <div class="card l1">
+              <div class="imgph" style="margin-top:0;aspect-ratio:4/3;min-height:0"><span class="tag">[IMG · Can liner production line · 4:3]</span></div>
+              <h3>Can Liners<span class="chev">+</span></h3><p class="one">HDPE and LLDPE, every density. Flat pack and coreless roll.</p>
+              <div class="l1-body">
+                <p>Four constructions across the line. Max-Performance is the flagship: LLDPE Flat Pack with a minimum 10% post-consumer recycled content, and the construction that supplies the greatest share of direct labor hours for team members who are blind or have low vision. The 91% BVI Direct Labor concentration at Wichita is why our quality stays consistent and retention runs well above industry averages.</p>
+                <dl class="kv"><dt>Max-Performance</dt><dd>LLDPE · 10% PCR min · 5 SKUs</dd><dt>Pro-Performance LLDPE</dt><dd>Stretch / load strength</dd><dt>Pro-Performance HDPE</dt><dd>High tensile, economical</dd><dt>Specialty</dt><dd>Insect repellent, shredder, recycled, compostable</dd></dl>
+                <span class="pill nsn">Federal NSN coverage</span>
+                <br><button class="drawerbtn" data-drawer="maxperf">Max-Performance SKU table ↑</button>
+                <button class="drawerbtn" data-drawer="prolldpe">Pro LLDPE ↑</button>
+                <button class="drawerbtn" data-drawer="prohdpe">Pro HDPE ↑</button>
+                <button class="drawerbtn" data-drawer="specialty">Specialty ↑</button>
+              </div>
             </div>
-          </div>
-          <button class="drawerbtn" data-drawer="maxperf">See full Max-Performance SKU table ↑</button>
+            <div class="card l1">
+              <div class="imgph" style="margin-top:0;aspect-ratio:4/3;min-height:0"><span class="tag">[IMG · Medical isolation bag or BFCUK kit · 4:3]</span></div>
+              <h3>Medical &amp; Specialty Bags<span class="chev">+</span></h3><p class="one">LLDPE. Tear and puncture resistant. Federal-grade compliance.</p>
+              <div class="l1-body">
+                <p>Color-coded isolation bags for regulated medical waste, the eight-piece Body Fluid Clean Up Kit assembled to the OSHA bloodborne pathogens standard, ZF seal-closure series, VA belongings bags built to VA specification, and TidyGirl feminine hygiene disposal bags.</p>
+                <span class="pill">OSHA · DOT 49 CFR</span><span class="pill">VA spec</span>
+                <br><button class="drawerbtn" data-drawer="isolation">Isolation ↑</button>
+                <button class="drawerbtn" data-drawer="bfcuk">BFCUK contents ↑</button>
+                <button class="drawerbtn" data-drawer="zf">ZF ↑</button>
+                <button class="drawerbtn" data-drawer="va">VA ↑</button>
+                <button class="drawerbtn" data-drawer="tidygirl">TidyGirl ↑</button>
+              </div>
             </div>
-            <div class="split-media">
-              <div class="imgph r43"><span class="tag">[IMG-06 · Max-Performance product or production line · 4:3]</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 07 Medical & Specialty Bags -->
-      <section class="slide" data-sec="2">
-        <div class="wrap">
-          <div class="split">
-            <div class="split-content">
-          <div class="eyebrow">Production line 02</div>
-          <h1 class="title">Medical &amp; specialty bags</h1>
-          <p class="anchor">LLDPE. Tear and puncture resistant. Federal-grade compliance.</p>
-          <div class="grid c3">
-            <div class="card l1"><h3>Medical isolation<span class="chev">+</span></h3><p class="one">Red, yellow, blue color system.</p>
-              <div class="l1-body"><p>Color-coded isolation bags (red / yellow / blue) for regulated medical waste segregation in clinical settings.</p><span class="pill">OSHA bloodborne</span><br><button class="drawerbtn" data-drawer="isolation">See SKU table ↑</button></div>
-            </div>
-            <div class="card l1"><h3>Body Fluid Clean Up Kit<span class="chev">+</span></h3><p class="one">8-piece OSHA bloodborne kit.</p>
-              <div class="l1-body"><p>Self-contained spill response kit assembled to the OSHA bloodborne pathogens standard. Eight-piece configuration.</p><span class="pill">OSHA · DOT 49 CFR</span><br><button class="drawerbtn" data-drawer="bfcuk">See kit contents ↑</button></div>
-            </div>
-            <div class="card l1"><h3>ZF Seal Closure Bags<span class="chev">+</span></h3><p class="one">Secure seal closure series.</p>
-              <div class="l1-body"><p>Seal-closure bag series for secure containment and transport. Multiple sizes across the ZF range.</p><span class="pill">LLDPE</span><br><button class="drawerbtn" data-drawer="zf">See SKU table ↑</button></div>
-            </div>
-            <div class="card l1"><h3>VA Belongings Bags<span class="chev">+</span></h3><p class="one">Patient belongings, VA spec.</p>
-              <div class="l1-body"><p>Patient belongings bags built to VA specification for personal-effects handling.</p><span class="pill">VA spec</span><br><button class="drawerbtn" data-drawer="va">See SKU table ↑</button></div>
-            </div>
-            <div class="card l1"><h3>TidyGirl feminine hygiene<span class="chev">+</span></h3><p class="one">Disposal system bags.</p>
-              <div class="l1-body"><p>Feminine hygiene disposal bags for facility restroom programs.</p><span class="pill">Facility</span><br><button class="drawerbtn" data-drawer="tidygirl">See SKU table ↑</button></div>
-            </div>
-          </div>
-            </div>
-            <div class="split-media">
-              <div class="imgph r43"><span class="tag">[IMG-07 · Medical isolation bag or BFCUK kit · 4:3 clean]</span></div>
+            <div class="card l1">
+              <div class="imgph" style="margin-top:0;aspect-ratio:4/3;min-height:0"><span class="tag">[IMG · Plastic sheeting roll or installation · 4:3]</span></div>
+              <h3>Plastic Sheeting<span class="chev">+</span></h3><p class="one">Water-resistant. Flood-control capable. Construction and agricultural grade.</p>
+              <div class="l1-body">
+                <p>Meets ASTM-D4397-10, the polyethylene sheeting standard covering thickness tolerance and physical properties for construction and agricultural use. Also meets the federal CID-A-A-3174 and L-P-378 commercial-item and material specifications. Qualifying SKUs are flagged in the full sheeting table.</p>
+                <span class="pill">ASTM-D4397-10</span><span class="pill">CID-A-A-3174 · L-P-378</span>
+                <br><button class="drawerbtn" data-drawer="sheeting">Sheeting SKU table ↑</button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 08 VISI-BELT -->
-      <section class="slide dark" data-sec="2">
+      <!-- 05 VISI-BELT Reflective System (CAPABILITIES) -->
+      <section class="slide dark" data-sec="1">
         <div class="wrap">
-          <div class="eyebrow">Production line 03</div>
+          <div class="eyebrow">Capabilities</div>
           <h1 class="title">VISI-BELT reflective system</h1>
           <div class="seq">
             <div class="step"><div class="d">164 ft</div><div class="t">Driver visibility to an unlit pedestrian</div></div>
@@ -716,28 +682,10 @@
         </div>
       </section>
 
-      <!-- 09 Plastic Sheeting -->
-      <section class="slide" data-sec="2">
+      <!-- 06 Hand Trucks (CAPABILITIES) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
-          <div class="eyebrow">Production line 04</div>
-          <h1 class="title">Plastic sheeting</h1>
-          <p class="anchor">Water-resistant. Flood-control capable. Construction and agricultural grade.</p>
-          <div class="grid c2">
-            <div class="card l1"><h3>Meets ASTM-D4397-10<span class="chev">+</span></h3><p class="one">Polyethylene sheeting standard.</p>
-              <div class="l1-body"><p>ASTM-D4397-10 governs polyethylene sheeting for construction and agricultural use, covering thickness tolerance and physical properties. The qualifying SKUs are listed in the full sheeting table.</p><button class="drawerbtn" data-drawer="sheeting">See SKU table ↑</button></div>
-            </div>
-            <div class="card l1"><h3>Meets CID-A-A-3174 &amp; L-P-378<span class="chev">+</span></h3><p class="one">Federal sheeting specifications.</p>
-              <div class="l1-body"><p>CID-A-A-3174 and L-P-378 are the federal commercial-item and material specifications for plastic sheeting. Qualifying SKUs are flagged in the full sheeting table.</p><button class="drawerbtn" data-drawer="sheeting">See SKU table ↑</button></div>
-            </div>
-          </div>
-          <div class="imgph r43"><span class="tag">[IMG-09 · Plastic sheeting roll or installation · 4:3]</span></div>
-        </div>
-      </section>
-
-      <!-- 10 Hand Trucks -->
-      <section class="slide" data-sec="2">
-        <div class="wrap">
-          <div class="eyebrow">Production line 05</div>
+          <div class="eyebrow">Capabilities</div>
           <h1 class="title">Hand trucks</h1>
           <p class="anchor">Heavy-duty steel frame. Solid rubber tires. Built for the long haul.</p>
           <div class="grid c3">
@@ -761,12 +709,12 @@
         </div>
       </section>
 
-      <!-- 11 Envision Print -->
-      <section class="slide" data-sec="2">
+      <!-- 07 Envision Print (CAPABILITIES) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
           <div class="split">
             <div class="split-content">
-          <div class="eyebrow">Production line 06</div>
+          <div class="eyebrow">Capabilities</div>
           <h1 class="title">Envision Print</h1>
           <p class="anchor">Federal-quality business cards, forms, stationery, pocket folders, postcards. Specializing in quick turnaround for top government agencies.</p>
           <div class="grid c3">
@@ -786,25 +734,38 @@
         </div>
       </section>
 
-      <!-- 12 Services Overview -->
-      <section class="slide" data-sec="3">
+      <!-- 08 Quality & Compliance (CAPABILITIES · credentials variant, no product tiles) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
-          <div class="eyebrow"><span class="badge-org">ORG-WIDE</span> Services · org-wide</div>
-          <h1 class="title">Beyond manufacturing.</h1>
-          <p class="anchor">Envision capabilities that aren't tied to one location. Available to support clients regardless of where production happens.</p>
+          <div class="eyebrow">Capabilities</div>
+          <h1 class="title">Built for federal procurement standards</h1>
           <div class="grid c4">
-            <div class="card link" data-goto="13" tabindex="0" role="link"><h3>Contact Center<span class="chev">→</span></h3><p class="one">Multi-channel customer service operations.</p></div>
-            <div class="card link" data-goto="14" tabindex="0" role="link"><h3>Accessibility Services<span class="chev">→</span></h3><p class="one">ADA Title II consulting, WCAG audits, training.</p></div>
-            <div class="card link" data-goto="15" tabindex="0" role="link"><h3>Fulfillment &amp; Assembly<span class="chev">→</span></h3><p class="one">Kitting, pick and pack, distribution.</p></div>
-            <div class="card l1"><h3>BPO<span class="chev">+</span></h3><p class="one">Business process outsourcing.</p>
-              <div class="l1-body"><p>Business process outsourcing operations led from our Dallas Campus, available as a parent-organization capability to Wichita clients.</p></div>
+            <div class="card l1"><h3>ISO 9001:2015<span class="chev">+</span></h3><p class="one">Intertek, ANAB-accredited.</p>
+              <div class="l1-body"><dl class="kv">
+                <dt>Certificate</dt><dd>CERT-0145812</dd>
+                <dt>Certified by</dt><dd>Intertek, ANAB-accredited</dd>
+                <dt>Initial cert</dt><dd>26 Jan 2021</dd>
+                <dt>Recent decision</dt><dd>18 Feb 2025</dd>
+                <dt>Valid until</dt><dd>25 Apr 2028</dd>
+              </dl><p style="margin-top:10px">Scope: Manufacture, Assembly and Fulfillment Services for Government, Military, and Commercial Applications. QA Lab tensile testing on every production run.</p></div>
+            </div>
+            <div class="card l1"><h3>Berry Amendment<span class="chev">+</span></h3><p class="one">Compliant.</p>
+              <div class="l1-body"><p>The Berry Amendment requires DoD to give preference to domestically sourced textiles and related end items. Envision's qualifying production meets the domestic sourcing requirement.</p></div>
+            </div>
+            <div class="card l1"><h3>TAA compliant<span class="chev">+</span></h3><p class="one">Trade Agreements Act.</p>
+              <div class="l1-body"><p>The Trade Agreements Act restricts federal procurement to U.S.-made or designated-country end products. Envision's federal-channel products satisfy TAA country-of-origin requirements.</p></div>
+            </div>
+            <div class="card l1"><h3>Buy American Act<span class="chev">+</span></h3><p class="one">Compliant.</p>
+              <div class="l1-body"><p>The Buy American Act sets domestic content thresholds for federal purchases. Envision's U.S. manufacturing satisfies the applicable domestic content tests.</p></div>
             </div>
           </div>
+          <p class="sub">All pricing considered fair and reasonable by DLA Troop Support.</p>
+          <p class="dcma">DCMA Alternate Release Program authorization is held at our Dallas Campus, available as a parent-organization capability.</p>
         </div>
       </section>
 
-      <!-- 13 Envision Contact Center -->
-      <section class="slide" data-sec="3">
+      <!-- 09 Envision Contact Center (CAPABILITIES · service) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
           <div class="eyebrow"><span class="badge-org">ORG-WIDE</span> Services</div>
           <h1 class="title">Envision Contact Center</h1>
@@ -824,8 +785,8 @@
         </div>
       </section>
 
-      <!-- 14 Envision Accessibility Services -->
-      <section class="slide" data-sec="3">
+      <!-- 10 Envision Accessibility Services (CAPABILITIES · service) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
           <div class="split">
             <div class="split-content">
@@ -854,15 +815,15 @@
         </div>
       </section>
 
-      <!-- 15 Fulfillment & Assembly -->
-      <section class="slide" data-sec="3">
+      <!-- 11 Fulfillment & Assembly (CAPABILITIES · service, absorbs BPO) -->
+      <section class="slide" data-sec="1">
         <div class="wrap">
           <div class="split">
             <div class="split-content">
           <div class="eyebrow"><span class="badge-org">ORG-WIDE</span> Services</div>
           <h1 class="title">Fulfillment &amp; Assembly</h1>
           <p class="anchor">Kitting, pick and pack, distribution. Custom assembly programs for federal and commercial clients.</p>
-          <div class="grid c3">
+          <div class="grid c4">
             <div class="card l1"><h3>Custom kitting<span class="chev">+</span></h3><p class="one">Bundled product programs.</p>
               <div class="l1-body"><p>Bundled product programs, BFCUK is one example (8-piece OSHA bloodborne kit).</p></div>
             </div>
@@ -871,6 +832,9 @@
             </div>
             <div class="card l1"><h3>Value-add assembly<span class="chev">+</span></h3><p class="one">Pride kitting area, Wichita.</p>
               <div class="l1-body"><p>Pride kitting area in Wichita, VISI-BELT assembly is one example.</p></div>
+            </div>
+            <div class="card l1"><h3>Business process outsourcing<span class="chev">+</span></h3><p class="one">Parent-organization capability.</p>
+              <div class="l1-body"><p>Business process outsourcing operations led from our Dallas Campus, available as a parent-organization capability to Wichita clients.</p></div>
             </div>
           </div>
             </div>
@@ -881,38 +845,8 @@
         </div>
       </section>
 
-      <!-- 16 Quality & Compliance -->
-      <section class="slide" data-sec="4">
-        <div class="wrap">
-          <div class="eyebrow">Quality &amp; Compliance</div>
-          <h1 class="title">Built for federal procurement standards</h1>
-          <div class="grid c4">
-            <div class="card l1"><h3>ISO 9001:2015<span class="chev">+</span></h3><p class="one">Intertek, ANAB-accredited.</p>
-              <div class="l1-body"><dl class="kv">
-                <dt>Certificate</dt><dd>CERT-0145812</dd>
-                <dt>Certified by</dt><dd>Intertek, ANAB-accredited</dd>
-                <dt>Initial cert</dt><dd>26 Jan 2021</dd>
-                <dt>Recent decision</dt><dd>18 Feb 2025</dd>
-                <dt>Valid until</dt><dd>25 Apr 2028</dd>
-              </dl><p style="margin-top:10px">Scope: Manufacture, Assembly and Fulfillment Services for Government, Military, and Commercial Applications. QA Lab tensile testing on every production run.</p></div>
-            </div>
-            <div class="card l1"><h3>Berry Amendment<span class="chev">+</span></h3><p class="one">Compliant.</p>
-              <div class="l1-body"><p>The Berry Amendment requires DoD to give preference to domestically sourced textiles and related end items. Envision's qualifying production meets the domestic sourcing requirement.</p></div>
-            </div>
-            <div class="card l1"><h3>TAA compliant<span class="chev">+</span></h3><p class="one">Trade Agreements Act.</p>
-              <div class="l1-body"><p>The Trade Agreements Act restricts federal procurement to U.S.-made or designated-country end products. Envision's federal-channel products satisfy TAA country-of-origin requirements.</p></div>
-            </div>
-            <div class="card l1"><h3>Buy American Act<span class="chev">+</span></h3><p class="one">Compliant.</p>
-              <div class="l1-body"><p>The Buy American Act sets domestic content thresholds for federal purchases. Envision's U.S. manufacturing satisfies the applicable domestic content tests.</p></div>
-            </div>
-          </div>
-          <p class="sub">All pricing considered fair and reasonable by DLA Troop Support.</p>
-          <p class="dcma">DCMA Alternate Release Program authorization is held at our Dallas Campus, available as a parent-organization capability.</p>
-        </div>
-      </section>
-
-      <!-- 17 Federal Channel -->
-      <section class="slide dark" data-sec="4">
+      <!-- 12 Federal Channel (FEDERAL) -->
+      <section class="slide dark" data-sec="2">
         <div class="wrap">
           <div class="eyebrow">Federal channel</div>
           <h1 class="title">Mandatory source. Prime vendor. Base supply.</h1>
@@ -933,7 +867,7 @@
             </div>
             <div class="card l1"><h3>Base Supply Centers<span class="chev">+</span></h3><p class="one">16 BSCs in 10 states. McConnell AFB (Wichita), Ft Riley, Ft Leavenworth among them.</p>
               <div class="l1-body"><ul>
-                <li>McConnell AFB — Wichita, KS</li>
+                <li>McConnell AFB, Wichita, KS</li>
                 <li>Fort Riley, KS</li>
                 <li>Fort Leavenworth, KS</li>
               </ul><p style="margin-top:10px">Full 16-location roster available on request.</p></div>
@@ -942,74 +876,65 @@
         </div>
       </section>
 
-      <!-- 18 Workforce & Mission -->
-      <section class="slide dark" data-sec="5">
+      <!-- 13 Who You Work With (PROOF · logo wall) -->
+      <section class="slide" data-sec="3">
         <div class="wrap">
-          <div class="eyebrow">Workforce &amp; Mission</div>
+          <div class="eyebrow">Proof</div>
+          <h1 class="title">Who you work with.</h1>
+          <div class="grid c4" style="margin-top:34px">
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 01]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 02]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 03]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 04]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 05]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 06]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 07]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 08]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 09]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 10]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 11]</span></div>
+            <div class="imgph" style="margin-top:0;aspect-ratio:3/2;min-height:0"><span class="tag">[CLIENT LOGO 12]</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 Workforce & Mission (WHY THIS CAMPUS · hybrid: image hero + stat strip + one line) -->
+      <section class="slide dark" data-sec="4">
+        <div class="wrap">
+          <div class="eyebrow">Why this campus matters</div>
           <h1 class="title">Why our quality stays consistent.</h1>
+          <div class="imgph land"><span class="tag">[IMG-18 · Authentic on-the-floor team member, workforce in action · landscape hero]</span></div>
           <div class="stat-row">
             <div><div class="num">315</div><div class="lab">employees at Wichita</div></div>
             <div><div class="num">91%</div><div class="lab">BVI Direct Labor concentration</div></div>
             <div class="card l1" style="padding:0;border:0;background:none">
               <div style="cursor:pointer"><div class="num" style="display:flex;align-items:center;gap:10px">~4M <span class="chev" style="font-size:13px">+</span></div><div class="lab">employment hours provided to people who are blind or have low vision since 1980</div></div>
               <div class="l1-body"><ul>
-                <li><b>1933</b> — Founded as the Wichita Workshop and Training School for the Adult Blind</li>
-                <li><b>1938</b> — Wagner-O'Day Act signed by FDR, Envision begins federal supply</li>
-                <li><b>1971</b> — JWOD Act revision expands the program</li>
-                <li><b>1980</b> — Cumulative tracking begins for BVI employment hours</li>
-                <li><b>2006</b> — Program renamed AbilityOne</li>
+                <li><b>1933</b> · Founded as the Wichita Workshop and Training School for the Adult Blind</li>
+                <li><b>1938</b> · Wagner-O'Day Act signed by FDR, Envision begins federal supply</li>
+                <li><b>1971</b> · JWOD Act revision expands the program</li>
+                <li><b>1980</b> · Cumulative tracking begins for BVI employment hours</li>
+                <li><b>2006</b> · Program renamed AbilityOne</li>
               </ul></div>
             </div>
           </div>
-          <p class="anchor">Workforce composition is a credential, not a sales pitch. The 91% BVI Direct Labor concentration at Wichita matters because it explains why our quality stays consistent. Manufacturing workforce retention at Envision runs significantly above industry averages. Buyers choose us first because we deliver. The mission is why they stay.</p>
-          <div class="imgph r43"><span class="tag">[IMG-18 · Authentic on-the-floor team member · 4:3]</span></div>
+          <p class="anchor">Workforce composition is a credential, not a sales pitch. Buyers choose us because we deliver. The mission is why they stay.</p>
         </div>
       </section>
 
-      <!-- 19 The Ask -->
-      <section class="slide" data-sec="6">
-        <div class="wrap">
-          <div class="eyebrow">Next steps</div>
-          <h1 class="title">Let's scope what fits your need.</h1>
-          <div class="actions">
-            <div class="act"><div class="h">Tour the campus</div><div class="b">See manufacturing, QA Lab, and the Pride kitting area in person.</div></div>
-            <div class="act"><div class="h">Request a quote</div><div class="b">Custom production runs, federal-channel buys, or commercial direct.</div></div>
-            <div class="act"><div class="h">Scope a custom program</div><div class="b">Bring us your spec and we'll work the production approach.</div></div>
-          </div>
-          <p class="sub">We respond to inbound requests within two business days.</p>
-        </div>
-      </section>
-
-      <!-- 20 Your Team at Envision -->
-      <section class="slide" data-sec="6">
-        <div class="wrap">
-          <div class="eyebrow">Your team at Envision</div>
-          <h1 class="title">Who you'll work with.</h1>
-          <div class="org">
-            <div class="org-row">
-              <div class="ocard"><div class="nm">[NAME]</div><div class="ti">[TITLE]</div><div class="ct">[EMAIL]<br>[PHONE]</div></div>
-            </div>
-            <div class="conn"></div>
-            <div class="org-row">
-              <div class="ocard"><div class="nm">[NAME]</div><div class="ti">[TITLE]</div><div class="ct">[EMAIL]<br>[PHONE]</div></div>
-              <div class="ocard"><div class="nm">[NAME]</div><div class="ti">[TITLE]</div><div class="ct">[EMAIL]<br>[PHONE]</div></div>
-              <div class="ocard"><div class="nm">[NAME]</div><div class="ti">[TITLE]</div><div class="ct">[EMAIL]<br>[PHONE]</div></div>
-            </div>
-            <div class="conn"></div>
-            <div class="org-row">
-              <div class="ocard"><div class="nm">[GENERAL INBOX]</div><div class="ti">For introductions</div><div class="ct">[EMAIL]<br>[PHONE]</div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 21 Closing -->
-      <section class="slide dark" data-sec="6">
+      <!-- 15 Contact / Next Steps (WHY THIS CAMPUS · The Ask compressed + contact + addresses) -->
+      <section class="slide dark" data-sec="4">
         <div class="wrap center">
           <div class="closing">
             <div class="eyebrow" style="justify-content:center">Envision · Wichita Campus</div>
-            <h1 class="title closing-title" style="margin-top:18px">Plastic. Paper. Reflective. Print. Built to scale with you.</h1>
-            <div class="meta">envisionus.com<br>2301 S. Water Street, Wichita, KS 67213</div>
+            <h1 class="title closing-title" style="margin-top:18px">Let's scope what fits your need.</h1>
+            <p class="sub" style="margin:18px auto 0">Tour the campus, request a quote, or scope a custom production program. We respond to inbound requests within two business days.</p>
+            <div class="org" style="margin-top:34px">
+              <div class="org-row">
+                <div class="ocard"><div class="nm">Sebastian [LAST NAME]</div><div class="ti">[TITLE]</div><div class="ct">[EMAIL]<br>[PHONE]</div></div>
+              </div>
+            </div>
+            <div class="meta">envisionus.com<br>Wichita Campus · 2301 S. Water Street, Wichita, KS 67213<br>Dallas Campus · [DALLAS ADDRESS]</div>
           </div>
           <div class="imgph bg" style="position:absolute;z-index:-1;opacity:.25"></div>
         </div>
@@ -1062,13 +987,11 @@
   "use strict";
 
   var SECTIONS = [
-    {name:"Overview",            count:2},
-    {name:"Campus",              count:1},
-    {name:"Capabilities",        count:8},
-    {name:"Services",            count:4},
-    {name:"Federal Channel",     count:2},
-    {name:"Workforce & Mission", count:1},
-    {name:"Next Steps",          count:3}
+    {name:"Open",            count:2},
+    {name:"Capabilities",    count:9},
+    {name:"Federal",         count:1},
+    {name:"Proof",           count:1},
+    {name:"Why This Campus", count:2}
   ];
 
   var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
@@ -1083,26 +1006,23 @@
     acc += s.count;
   });
 
-  // Section tick marks at section boundaries (clickable, jump to first slide)
-  var trackEl = document.getElementById("track");
-  for (var ti = 1; ti < SECTIONS.length; ti++){
-    (function(i){
-      var tick = document.createElement("div");
-      tick.className = "tick";
-      tick.style.left = (sectionStart[i] / total * 100) + "%";
-      tick.innerHTML = '<div class="tick-hit"></div><div class="tick-tip">' +
-                       SECTIONS[i].name + '</div>';
-      tick.addEventListener("click", function(){ goToSectionStart(i); });
-      trackEl.appendChild(tick);
-    })(ti);
-  }
+  // Persistent top-nav section links (clickable, jump to first slide of section)
+  var navLinksEl = document.getElementById("navLinks");
+  var navButtons = [];
+  SECTIONS.forEach(function(s, i){
+    var b = document.createElement("button");
+    b.className = "navlink";
+    b.type = "button";
+    b.textContent = s.name;
+    b.addEventListener("click", function(){ goToSectionStart(i); });
+    navLinksEl.appendChild(b);
+    navButtons.push(b);
+  });
 
   function pad2(n){ return (n < 10 ? "0" : "") + n; }
 
-  var trackFill = document.getElementById("trackFill");
-  var subBar    = document.getElementById("subBar");
-  var subFill   = document.getElementById("subFill");
-  var fsIc      = document.getElementById("fsIc");
+  var navProgress = document.getElementById("navProgress");
+  var fsIc        = document.getElementById("fsIc");
 
   var ICON_MAX = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>';
   var ICON_MIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>';
@@ -1146,7 +1066,7 @@
     if (!def || !rows || !rows.length) return DRAWER_STUB;
     var head = def.c.map(function(c){ return "<th>" + c + "</th>"; }).join("");
     var body = rows.map(function(row){
-      return "<tr>" + def.c.map(function(_, i){ return "<td>" + (row[i] != null ? row[i] : "—") + "</td>"; }).join("") + "</tr>";
+      return "<tr>" + def.c.map(function(_, i){ return "<td>" + (row[i] != null ? row[i] : "·") + "</td>"; }).join("") + "</tr>";
     }).join("");
     return '<table class="sku"><thead><tr>' + head + '</tr></thead><tbody>' + body + '</tbody></table>';
   }
@@ -1225,21 +1145,17 @@
     });
     deckEl.classList.toggle("dark-surface", slides[idx].classList.contains("dark"));
     deckEl.classList.toggle("bookend", idx === 0 || idx === total - 1);
-    var sec   = slideSection[idx];
-    var count = SECTIONS[sec].count;
-    var within = idx - sectionStart[sec];
+    var sec = slideSection[idx];
 
     document.getElementById("cur").textContent = pad2(idx + 1);
     document.getElementById("secName").textContent = SECTIONS[sec].name;
     document.getElementById("brandSection").textContent = "· " + SECTIONS[sec].name;
 
-    // Overall progress fill
-    trackFill.style.width = ((idx + 1) / total * 100) + "%";
+    // Emphasize the current section in the persistent nav
+    navButtons.forEach(function(b, i){ b.classList.toggle("active", i === sec); });
 
-    // Sub-bar: spans only the active section's width, fills with position in section
-    subBar.style.left  = (sectionStart[sec] / total * 100) + "%";
-    subBar.style.width = (count / total * 100) + "%";
-    subFill.style.width = ((within + 1) / count * 100) + "%";
+    // Overall deck progress hairline under the nav
+    navProgress.style.width = ((idx + 1) / total * 100) + "%";
 
     document.getElementById("prevBtn").disabled = (idx === 0);
     document.getElementById("nextBtn").disabled = (idx === total - 1);
@@ -1315,7 +1231,7 @@
     if (e.key === "ArrowRight" || e.key === " " || e.key === "Spacebar"){ e.preventDefault(); go(idx + 1); }
     else if (e.key === "ArrowLeft"){ e.preventDefault(); go(idx - 1); }
     else if (e.key === "f" || e.key === "F"){ toggleFs(); }
-    else if (e.key >= "1" && e.key <= "7"){
+    else if (e.key >= "1" && e.key <= "5"){
       var s = parseInt(e.key, 10) - 1;
       if (s < SECTIONS.length) goToSectionStart(s);
     }
