@@ -135,11 +135,11 @@
   .hero .image-bg{
     position:absolute;inset:0;z-index:0;
     background-image:url("images/envision-building-sideangle.png");
-    background-size:cover;background-position:center;
+    background-size:cover;background-position:22% center;
   }
   .hero .overlay{
     position:absolute;inset:0;z-index:1;
-    background:linear-gradient(105deg,rgba(0,24,82,1) 0%,rgba(0,24,82,1) 38%,rgba(0,24,82,0.82) 60%,rgba(0,24,82,0.42) 100%);
+    background:linear-gradient(105deg,rgba(0,24,82,1) 0%,rgba(0,24,82,0.97) 46%,rgba(0,24,82,0.8) 70%,rgba(0,24,82,0.5) 100%);
   }
   .hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%}
   .hero h1{color:#fff}
@@ -167,8 +167,8 @@
     color:var(--text-soft);margin:10px 0 12px;
   }
   .stat-card .ctx{font-size:13.5px;line-height:1.65;color:var(--text-mid)}
-  .stat-photo{background:var(--bg-light);grid-column:span 2;min-height:200px}
-  .stat-photo img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+  .stat-photo{background:var(--bg-light);grid-column:span 2;height:clamp(220px,30vh,320px);overflow:hidden}
+  .stat-photo img{width:100%;height:100%;object-fit:cover;object-position:28% 50%;display:block}
   .addr-strip{
     margin-top:30px;padding-top:20px;border-top:1px solid var(--rule-light);
     font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--text-soft);
@@ -206,7 +206,7 @@
   }
   .img-actual img{width:100%;height:100%;object-fit:cover;display:block}
   .img-banner{
-    margin:0 0 28px;height:120px;border-radius:6px;
+    margin:0 0 28px;height:clamp(200px,26vh,270px);border-radius:6px;
     overflow:hidden;background:var(--bg-tint);
   }
   .img-banner img{width:100%;height:100%;object-fit:cover;display:block}
@@ -847,8 +847,8 @@
       <!-- SLIDE 3: WORKFORCE -->
       <section class="slide" data-name="Campus">
         <div class="wrap">
-          <figure class="img-banner" style="height:clamp(190px,26vh,260px)">
-            <img src="images/Envision-Workforce-employee-dallas-manufacoring.png" alt="Envision workforce on the manufacturing line" style="object-position:center 24%">
+          <figure class="img-banner">
+            <img src="images/Envision-Workforce-employee-dallas-manufacoring.png" alt="Envision workforce on the manufacturing line" style="object-position:center 28%">
           </figure>
           <div class="eyebrow">Why This Campus Delivers</div>
           <h2 class="sec-h">93 years of continuous manufacturing. One reason it works.</h2>
@@ -866,7 +866,7 @@
       <section class="slide" data-name="Campus">
         <div class="wrap">
           <figure class="img-banner">
-            <img src="images/envision-warehouse-interior-panoramic.png" alt="Panoramic interior of the Envision Wichita manufacturing and warehouse floor">
+            <img src="images/envision-warehouse-interior-panoramic.png" alt="Panoramic interior of the Envision Wichita manufacturing and warehouse floor" style="object-position:center 55%">
           </figure>
           <div class="eyebrow">Everything Wichita Offers</div>
           <h2 class="sec-h">One campus. Every capability.</h2>
@@ -900,7 +900,7 @@
       <section class="slide" data-name="Services">
         <div class="wrap">
           <figure class="img-banner">
-            <img src="images/Envision-Day_01-1028.jpg" alt="Envision contact center employee working at a computer" style="object-position:center 26%">
+            <img src="images/Envision-Day_01-1028.jpg" alt="Envision contact center employee working at a computer" style="object-position:center 45%">
           </figure>
           <div class="eyebrow">Services</div>
           <h2 class="sec-h">Everything Wichita <span class="accent">delivers.</span></h2>
