@@ -117,8 +117,8 @@
     line-height:1.05;color:var(--text-dark);margin-bottom:22px;
   }
   h2.sec-h{
-    font-weight:800;font-size:clamp(1.9rem,3.4vw,2.7rem);letter-spacing:-0.022em;
-    line-height:1.08;color:var(--text-dark);margin-bottom:18px;
+    font-weight:800;font-size:clamp(1.7rem,2.8vw,2.3rem);letter-spacing:-0.022em;
+    line-height:1.12;color:var(--text-dark);margin-bottom:18px;
   }
   .subhead{
     font-size:clamp(1rem,1.3vw,1.18rem);font-weight:400;line-height:1.7;
@@ -168,7 +168,7 @@
   }
   .stat-card .ctx{font-size:13.5px;line-height:1.65;color:var(--text-mid)}
   .stat-photo{background:var(--bg-light);grid-column:span 2;min-height:200px}
-  .stat-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+  .stat-photo img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
   .addr-strip{
     margin-top:30px;padding-top:20px;border-top:1px solid var(--rule-light);
     font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--text-soft);
@@ -838,7 +838,7 @@
             <div class="stat-card"><div class="num">1933</div><div class="lab">Founded</div><div class="ctx">Continuously manufacturing in this building for 93 years.</div></div>
             <div class="stat-card"><div class="num">5</div><div class="lab">Production lines</div><div class="ctx">Plus a full commercial print operation.</div></div>
             <div class="stat-card"><div class="num">3</div><div class="lab">Product families</div><div class="ctx">Can liners, medical and specialty bags, plastic sheeting. Plus reflective, metal, and print.</div></div>
-            <div class="stat-photo"><img src="images/envision-employee-with-guide-dog-factory.png" alt="Envision team member walking the manufacturing floor with her guide dog"></div>
+            <div class="stat-photo"><img src="images/ChatGPT%20Image%20May%2018,%202026%20at%2006_10_31%20PM.png" alt="Envision team member walking the manufacturing floor with her guide dog"></div>
           </div>
           <div class="addr-strip">2301 S. Water Street, Wichita, KS 67213 · (316) 522-3232</div>
         </div>
@@ -848,7 +848,7 @@
       <section class="slide" data-name="Campus">
         <div class="wrap">
           <figure class="img-banner" style="height:clamp(190px,26vh,260px)">
-            <img src="images/Envision-Workforce-employee-dallas-manufacoring.png" alt="Envision workforce on the manufacturing line">
+            <img src="images/Envision-Workforce-employee-dallas-manufacoring.png" alt="Envision workforce on the manufacturing line" style="object-position:center 24%">
           </figure>
           <div class="eyebrow">Why This Campus Delivers</div>
           <h2 class="sec-h">93 years of continuous manufacturing. One reason it works.</h2>
@@ -866,7 +866,7 @@
       <section class="slide" data-name="Campus">
         <div class="wrap">
           <figure class="img-banner">
-            <img src="images/Envision-wichita-highangle-buildingphoto.png" alt="High-angle view of the Envision Wichita manufacturing campus">
+            <img src="images/envision-warehouse-interior-panoramic.png" alt="Panoramic interior of the Envision Wichita manufacturing and warehouse floor">
           </figure>
           <div class="eyebrow">Everything Wichita Offers</div>
           <h2 class="sec-h">One campus. Every capability.</h2>
@@ -885,8 +885,8 @@
       <!-- SLIDE 5: CAPABILITIES HUB -->
       <section class="slide" data-name="Capabilities">
         <div class="wrap">
-          <figure class="img-banner pano pano-left">
-            <img src="images/envision-warehouse-interior-panoramic.png" alt="Left half of a panoramic interior of the Envision Wichita manufacturing and warehouse floor">
+          <figure class="img-banner">
+            <img src="images/envision-manufacturing-floor-bag-machines.png" alt="High-angle view of the Envision Wichita manufacturing floor with bag-making machines" style="object-position:center 42%">
           </figure>
           <div class="eyebrow">Capabilities</div>
           <h2 class="sec-h">Everything Wichita <span class="accent">makes.</span></h2>
@@ -899,8 +899,8 @@
       <!-- SLIDE 6: SERVICES HUB -->
       <section class="slide" data-name="Services">
         <div class="wrap">
-          <figure class="img-banner pano pano-right">
-            <img src="images/envision-warehouse-interior-panoramic.png" alt="Right half of a panoramic interior of the Envision Wichita manufacturing and warehouse floor">
+          <figure class="img-banner">
+            <img src="images/Envision-Day_01-1028.jpg" alt="Envision contact center employee working at a computer" style="object-position:center 26%">
           </figure>
           <div class="eyebrow">Services</div>
           <h2 class="sec-h">Everything Wichita <span class="accent">delivers.</span></h2>
@@ -1412,7 +1412,8 @@
         {tag:"Service",title:"Custom program scoping",desc:"Custom service programs scoped to client volume."}
       ],
       img:"Contact center workstation, 4:3",
-      imgSrc:"images/envision-call-center-employee-headset.png"
+      imgSrc:"images/envision-call-center-employee-headset.png",
+      imgPos:"center 26%"
     },
     accessibility:{
       label:"Services", eyebrow:"Service", title:"Accessibility Services",
@@ -1438,7 +1439,8 @@
         {tag:"Service",title:"User testing with BVI participants",desc:"Screen-reader and assistive-tech scenarios."}
       ],
       img:"User testing or training context, 4:3",
-      imgSrc:"images/envision-employee-man-headset-white-cane.png"
+      imgSrc:"images/Envision-Day_01-0989.jpg",
+      imgPos:"center 22%"
     },
     procurement:{
       label:"Services", eyebrow:"Service", title:"Federal Procurement Services",
@@ -1589,7 +1591,7 @@
 
     modalInner.innerHTML =
       '<div class="m-imgbreak m-topbanner"><div class="image-bg"'+
-        (d.imgSrc ? ' style="background-image:url(&quot;'+d.imgSrc+'&quot;);background-size:cover;background-position:center"' : '')+
+        (d.imgSrc ? ' style="background-image:url(&quot;'+d.imgSrc+'&quot;);background-size:cover;background-position:'+(d.imgPos||'center')+'"' : '')+
         ' role="img" aria-label="'+d.img+'"></div></div>'+
       '<div class="m-summary">'+
         '<div class="m-sum-left">'+
