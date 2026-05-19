@@ -134,7 +134,7 @@
   }
   .hero .image-bg{
     position:absolute;inset:0;z-index:0;
-    background-image:url("images/Envision-wichita-highangle-buildingphoto.png");
+    background-image:url("images/envision-employee-with-guide-dog-factory.png");
     background-size:cover;background-position:center right;
   }
   .hero .overlay{
@@ -200,6 +200,16 @@
   }
   .img-placeholder.hero-banner svg{width:30px;height:30px}
   .img-placeholder.hero-banner .ph-note{max-width:none}
+  .img-actual{
+    margin:34px 0;width:100%;aspect-ratio:16/9;
+    border-radius:6px;overflow:hidden;background:var(--bg-tint);
+  }
+  .img-actual img{width:100%;height:100%;object-fit:cover;display:block}
+  .img-banner{
+    margin:0 0 28px;height:120px;border-radius:6px;
+    overflow:hidden;background:var(--bg-tint);
+  }
+  .img-banner img{width:100%;height:100%;object-fit:cover;display:block}
 
   /* ---------- 3,000-foot view ---------- */
   .zone{margin-top:30px}
@@ -822,7 +832,7 @@
             <div class="stat-card"><div class="num">1933</div><div class="lab">Founded</div><div class="ctx">Continuously manufacturing in this building for 93 years.</div></div>
             <div class="stat-card"><div class="num">5</div><div class="lab">Production lines</div><div class="ctx">Plus a full commercial print operation.</div></div>
             <div class="stat-card"><div class="num">3</div><div class="lab">Product families</div><div class="ctx">Can liners, medical and specialty bags, plastic sheeting. Plus reflective, metal, and print.</div></div>
-            <div class="stat-photo"><img src="images/Envision-wichita-highangle-buildingphoto.png" alt="Aerial view of the Envision Wichita manufacturing campus"></div>
+            <div class="stat-photo"><img src="images/Envision-wichita-highangle-buildingphoto.png" alt="High-angle view of the Envision Wichita manufacturing campus"></div>
           </div>
           <div class="addr-strip">2301 S. Water Street, Wichita, KS 67213 · (316) 522-3232</div>
         </div>
@@ -840,17 +850,9 @@
             <div class="stat-card"><div class="num">4M+</div><div class="lab">Employment hours</div><div class="ctx">Provided to people who are blind or low vision since 1980. The reason our retention runs above industry average.</div></div>
           </div>
           <p class="closing-line">Workforce composition is a credential. Buyers choose us because we deliver. The mission is why our people stay.</p>
-          <!-- IMAGE SLOT: Authentic floor shot, forward-moving operator, never posed -->
-          <figure class="img-placeholder" role="img" aria-label="Image placeholder: production floor photo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <path d="M21 15l-5-5L5 21"/>
-            </svg>
-            <div class="ph-title">Image Placeholder</div>
-            <div class="ph-note">Authentic floor shot &mdash; forward-moving operator, never posed.</div>
+          <figure class="img-actual">
+            <img src="images/Envision-Workforce-employee-dallas-manufacoring.png" alt="Envision workforce on the manufacturing line">
           </figure>
-          <!-- END IMAGE SLOT -->
         </div>
       </section>
 
@@ -874,17 +876,9 @@
       <!-- SLIDE 5: CAPABILITIES HUB -->
       <section class="slide" data-name="Capabilities">
         <div class="wrap">
-          <!-- IMAGE SLOT: Skinny hero banner, full-width, ~120px tall -->
-          <figure class="img-placeholder hero-banner" role="img" aria-label="Image placeholder: skinny hero banner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <path d="M21 15l-5-5L5 21"/>
-            </svg>
-            <div class="ph-title">Hero Banner</div>
-            <div class="ph-note">Skinny full-width banner image.</div>
+          <figure class="img-banner">
+            <img src="images/envision-warehouse-interior-panoramic.png" alt="Panoramic interior of the Envision Wichita manufacturing and warehouse floor">
           </figure>
-          <!-- END IMAGE SLOT -->
           <div class="eyebrow">Capabilities</div>
           <h2 class="sec-h">Everything Wichita <span class="accent">makes.</span></h2>
           <p class="subhead">Five manufacturing capabilities operated from a single Kansas campus. Each one shipped under contract today.</p>
@@ -896,17 +890,9 @@
       <!-- SLIDE 6: SERVICES HUB -->
       <section class="slide" data-name="Services">
         <div class="wrap">
-          <!-- IMAGE SLOT: Skinny hero banner, full-width, ~120px tall -->
-          <figure class="img-placeholder hero-banner" role="img" aria-label="Image placeholder: skinny hero banner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <path d="M21 15l-5-5L5 21"/>
-            </svg>
-            <div class="ph-title">Hero Banner</div>
-            <div class="ph-note">Skinny full-width banner image.</div>
+          <figure class="img-banner">
+            <img src="images/employee-factory-wichita.png" alt="Envision team member at work on the Wichita manufacturing floor">
           </figure>
-          <!-- END IMAGE SLOT -->
           <div class="eyebrow">Services</div>
           <h2 class="sec-h">Everything Wichita <span class="accent">delivers.</span></h2>
           <p class="subhead">Four services that extend our manufacturing capability. Available as packaged offerings alongside any production program.</p>
@@ -1293,7 +1279,8 @@
         {tag:"Medical-grade",title:"Medical & Specialty Bags",desc:"Color-coded isolation bags, BFCUK 8-piece kit, ZF seal-closure, VA belongings, TidyGirl.",specs:[["Compliance","OSHA"],["Spec","DOT 49 CFR"],["Spec","VA"],["Lines","5 families"]]},
         {tag:"Construction",title:"Plastic Sheeting",desc:"Water-resistant, flood-control polyethylene.",specs:[["Standard","ASTM-D4397-10"],["Fed CID","A-A-3174"],["Fed spec","L-P-378"],["Use","Construction / Ag"]]}
       ],
-      img:"Plastic & Film production line, authentic floor shot, forward-moving operator, never posed"
+      img:"Plastic & Film production line, authentic floor shot, forward-moving operator, never posed",
+      imgSrc:"images/envision-manufacturing-floor-bag-machines.png"
     },
     reflective:{
       label:"Capabilities", eyebrow:"Capability", title:"Reflective Manufacturing",
@@ -1363,7 +1350,8 @@
         {tag:"Accessibility",title:"Braille Embossing",desc:"Grade 2 English Braille (contractions for natural reading), Computer Braille (letter-by-letter for emails). Up to 4 lines, 13 characters per line.",specs:[["Lines","Up to 4"],["Chars/line","13"],["Rate","$25/box flat"]]},
         {tag:"Fulfillment",title:"Mailing Services",desc:"Print, finish, and mail. 3-day rush available with $25 surcharge.",specs:[["Rush","3-day"],["Surcharge","$25"]]}
       ],
-      img:"Business card with Braille embossing detail, 1:1 macro"
+      img:"Business card with Braille embossing detail, 1:1 macro",
+      imgSrc:"images/printing-brailing.png"
     },
     fulfillment:{
       label:"Capabilities", eyebrow:"Capability", title:"Fulfillment & Assembly",
@@ -1388,7 +1376,8 @@
         {tag:"Service",title:"Value-add assembly",desc:"Pride kitting area in Wichita. VISI-BELT assembly is one example.",specs:[["Location","Wichita"],["Example","VISI-BELT"]]},
         {tag:"Service",title:"Distribution",desc:"From Wichita campus, integrated with federal and commercial channels.",specs:[["Origin","Wichita"],["Channels","Fed / Comm"]]}
       ],
-      img:"Fulfillment line or kit assembly, 4:3"
+      img:"Fulfillment line or kit assembly, 4:3",
+      imgSrc:"images/Envision-print-lableroll.png"
     },
     contact:{
       label:"Services", eyebrow:"Service", title:"Envision Contact Center",
@@ -1413,7 +1402,8 @@
         {tag:"Service",title:"Digital channel support",desc:"Omnichannel coverage with ticketing integration."},
         {tag:"Service",title:"Custom program scoping",desc:"Custom service programs scoped to client volume."}
       ],
-      img:"Contact center workstation, 4:3"
+      img:"Contact center workstation, 4:3",
+      imgSrc:"images/envision-call-center-employee-headset.png"
     },
     accessibility:{
       label:"Services", eyebrow:"Service", title:"Accessibility Services",
@@ -1438,7 +1428,8 @@
         {tag:"Service",title:"Training",desc:"Custom training for procurement teams, content authors, developers."},
         {tag:"Service",title:"User testing with BVI participants",desc:"Screen-reader and assistive-tech scenarios."}
       ],
-      img:"User testing or training context, 4:3"
+      img:"User testing or training context, 4:3",
+      imgSrc:"images/envision-employee-man-headset-white-cane.png"
     },
     procurement:{
       label:"Services", eyebrow:"Service", title:"Federal Procurement Services",
@@ -1600,9 +1591,9 @@
       '<div class="m-block"><div class="m-sec-label">'+d.statLabel+'</div><div class="m-stats">'+stats+'</div></div>'+
       '<div class="m-block"><div class="m-sec-label">'+d.calloutLabel+'</div><div class="m-callouts">'+callouts+'</div>'+colorStrip+'</div>'+
       '<div class="m-block" style="padding:0;border-bottom:0">'+
-        '<!-- IMAGE SLOT: '+d.img+' -->'+
-        '<div class="m-imgbreak"><div class="image-bg"></div></div>'+
-        '<!-- END IMAGE SLOT -->'+
+        '<div class="m-imgbreak"><div class="image-bg"'+
+          (d.imgSrc ? ' style="background-image:url(&quot;'+d.imgSrc+'&quot;);background-size:cover;background-position:center"' : '')+
+          ' role="img" aria-label="'+d.img+'"></div></div>'+
       '</div>'+
       '<div class="m-cta">'+
         '<h3>Want to scope a '+d.title+' program?</h3>'+
