@@ -134,8 +134,8 @@
   }
   .hero .image-bg{
     position:absolute;inset:0;z-index:0;
-    background-image:url("images/envision-employee-with-guide-dog-factory.png");
-    background-size:cover;background-position:center right;
+    background-image:url("images/envision-building-sideangle.png");
+    background-size:cover;background-position:center;
   }
   .hero .overlay{
     position:absolute;inset:0;z-index:1;
@@ -168,7 +168,7 @@
   }
   .stat-card .ctx{font-size:13.5px;line-height:1.65;color:var(--text-mid)}
   .stat-photo{background:var(--bg-light);grid-column:span 2;min-height:200px}
-  .stat-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .stat-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
   .addr-strip{
     margin-top:30px;padding-top:20px;border-top:1px solid var(--rule-light);
     font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--text-soft);
@@ -593,6 +593,10 @@
   }
   .m-imgbreak{position:relative;width:100%;height:320px;overflow:hidden}
   .m-imgbreak .image-bg{position:absolute;inset:0}
+  .m-topbanner{
+    height:clamp(200px,30vh,300px);border-radius:6px;
+    margin:28px 0 4px;
+  }
   .m-cta{padding:48px 0 0;text-align:center}
   .m-cta h3{
     font-weight:800;font-size:clamp(1.4rem,2.4vw,2rem);color:var(--text-light);
@@ -834,7 +838,7 @@
             <div class="stat-card"><div class="num">1933</div><div class="lab">Founded</div><div class="ctx">Continuously manufacturing in this building for 93 years.</div></div>
             <div class="stat-card"><div class="num">5</div><div class="lab">Production lines</div><div class="ctx">Plus a full commercial print operation.</div></div>
             <div class="stat-card"><div class="num">3</div><div class="lab">Product families</div><div class="ctx">Can liners, medical and specialty bags, plastic sheeting. Plus reflective, metal, and print.</div></div>
-            <div class="stat-photo"><img src="images/Envision-wichita-highangle-buildingphoto.png" alt="High-angle view of the Envision Wichita manufacturing campus"></div>
+            <div class="stat-photo"><img src="images/envision-employee-with-guide-dog-factory.png" alt="Envision team member walking the manufacturing floor with her guide dog"></div>
           </div>
           <div class="addr-strip">2301 S. Water Street, Wichita, KS 67213 · (316) 522-3232</div>
         </div>
@@ -843,6 +847,9 @@
       <!-- SLIDE 3: WORKFORCE -->
       <section class="slide" data-name="Campus">
         <div class="wrap">
+          <figure class="img-banner" style="height:clamp(190px,26vh,260px)">
+            <img src="images/Envision-Workforce-employee-dallas-manufacoring.png" alt="Envision workforce on the manufacturing line">
+          </figure>
           <div class="eyebrow">Why This Campus Delivers</div>
           <h2 class="sec-h">93 years of continuous manufacturing. One reason it works.</h2>
           <p class="subhead">The Wichita campus has run production in the same building since 1933. The result is a manufacturing operation with retention well above industry average, quality consistency that holds across long runs, and the kind of operational track record that buyers across federal, commercial, and state channels rely on.</p>
@@ -852,15 +859,15 @@
             <div class="stat-card"><div class="num">4M+</div><div class="lab">Employment hours</div><div class="ctx">Provided to people who are blind or low vision since 1980. The reason our retention runs above industry average.</div></div>
           </div>
           <p class="closing-line">Workforce composition is a credential. Buyers choose us because we deliver. The mission is why our people stay.</p>
-          <figure class="img-actual">
-            <img src="images/Envision-Workforce-employee-dallas-manufacoring.png" alt="Envision workforce on the manufacturing line">
-          </figure>
         </div>
       </section>
 
       <!-- SLIDE 4: 3,000-FOOT VIEW -->
       <section class="slide" data-name="Campus">
         <div class="wrap">
+          <figure class="img-banner">
+            <img src="images/Envision-wichita-highangle-buildingphoto.png" alt="High-angle view of the Envision Wichita manufacturing campus">
+          </figure>
           <div class="eyebrow">Everything Wichita Offers</div>
           <h2 class="sec-h">One campus. Every capability.</h2>
           <p class="subhead">Five manufacturing capabilities and four supporting services, operated from a single Kansas campus. Click any tile to explore.</p>
@@ -1581,6 +1588,9 @@
     }
 
     modalInner.innerHTML =
+      '<div class="m-imgbreak m-topbanner"><div class="image-bg"'+
+        (d.imgSrc ? ' style="background-image:url(&quot;'+d.imgSrc+'&quot;);background-size:cover;background-position:center"' : '')+
+        ' role="img" aria-label="'+d.img+'"></div></div>'+
       '<div class="m-summary">'+
         '<div class="m-sum-left">'+
           '<div class="m-eyebrow">'+d.eyebrow+'</div>'+
@@ -1592,11 +1602,6 @@
       '<div class="m-block"><div class="m-sec-label">Overview</div>'+overview+'</div>'+
       '<div class="m-block"><div class="m-sec-label">'+d.statLabel+'</div><div class="m-stats">'+stats+'</div></div>'+
       '<div class="m-block"><div class="m-sec-label">'+d.calloutLabel+'</div><div class="m-callouts">'+callouts+'</div>'+colorStrip+'</div>'+
-      '<div class="m-block" style="padding:0;border-bottom:0">'+
-        '<div class="m-imgbreak"><div class="image-bg"'+
-          (d.imgSrc ? ' style="background-image:url(&quot;'+d.imgSrc+'&quot;);background-size:cover;background-position:center"' : '')+
-          ' role="img" aria-label="'+d.img+'"></div></div>'+
-      '</div>'+
       '<div class="m-cta">'+
         '<h3>Want to scope a '+d.title+' program?</h3>'+
         '<p>Send a line item, a use case, or a contract vehicle. We respond within one business day.</p>'+
